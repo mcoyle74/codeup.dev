@@ -1,0 +1,43 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Trebuchet MS", verdana, sans-serif;
+}
+
+div#col-left {
+	position: absolute;
+	background-color: #999f8e;
+	width: 20%;
+	height: 100%;
+}
+
+div#col-right {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: #d2d8c7;
+	width: 80%;
+	height: 100%;
+}
+
+div.menu {
+	padding: 15px 0 15px 0;
+	width: 50%;
+}
+
+h1, h2 {
+	margin-left: 10px;
+}
+
+p {
+	margin-left: 10px;
+}
+
+span.italics {
+	font-style: italic;
+}
+
+a {
+	text-decoration: none;
+	color: #e0e0e0;
+}

@@ -1,0 +1,134 @@
+.flag {
+	height: 600px;
+	width: 900px;
+	position: relative;
+	margin: auto;
+	margin-top: 50px;
+	background-color: #de2910;
+	box-shadow: 14px 14px 21px #808080;
+}
+
+/* star components */
+.star-center {
+	height: 68px;
+	width: 68px;
+	border-radius: 50%;
+	position: absolute;
+	top: 30.5%;
+	left: 31%;
+	background-color: #ffde00;
+}
+.point-top {
+	height: 0;
+	width: 0;
+	border-left: 20px solid #de2910;
+	border-right: 20px solid #de2910;
+	border-bottom: 60px solid #ffde00;
+	position: absolute;
+	top: 1.5px;
+	left: 70px;	
+}
+.point-left {
+	height: 0;
+	width: 0;
+	border-left: 20px solid #de2910;
+	border-right: 20px solid #de2910;
+	border-bottom: 60px solid #ffde00;
+	position: absolute;
+	top: 41.25px;
+	left: 15.5px;
+	transform: rotate(-72deg);
+}
+.point-right {
+	height: 0;
+	width: 0;
+	border-left: 20px solid #de2910;
+	border-right: 20px solid #de2910;
+	border-bottom: 60px solid #ffde00;
+	position: absolute;
+	top: 41.25px;
+	left: 124.5px;
+	transform: rotate(72deg);
+}
+.point-bottom-l {
+	height: 0;
+	width: 0;
+	border-left: 20px solid #de2910;
+	border-right: 20px solid #de2910;
+	border-bottom: 60px solid #ffde00;
+	position: absolute;
+	bottom: 14.75px;
+	left: 36.5px;
+	transform: rotate(-144deg);
+}
+.point-bottom-r {
+	height: 0;
+	width: 0;
+	border-left: 20px solid #de2910;
+	border-right: 20px solid #de2910;
+	border-bottom: 60px solid #ffde00;
+	position: absolute;
+	bottom: 14.75px;
+	left: 104px;
+	transform: rotate(144deg);
+}
+
+/* large star */
+.large-star {
+	height: 180px;
+	width: 180px;
+	position: relative;
+	top: 10%;
+	left: 6.67%;
+}
+/* top small star */
+.small-star1 {
+	height: 180px;
+	width: 180px;
+	position: relative;
+}
+#ss1 {
+	position: absolute;
+	top: -28px;
+	left: 210px;
+	transform: rotate(22deg) scale(.33);
+}
+
+/* 2nd small star */
+.small-star2 {
+	height: 180px;
+	width: 180px;
+	position: relative;
+}
+#ss2 {
+	position: absolute;
+	top: 30px;
+	left: 270px;
+	transform: rotate(45deg) scale(.33);
+}
+
+/* 3rd small star */
+.small-star3 {
+	height: 180px;
+	width: 180px;
+	position: relative;
+}
+#ss3 {
+	position: absolute;
+	top: 121px;
+	left: 270px;
+	transform: rotate(-2deg) scale(.33);
+}
+
+/* bottom small star */
+.small-star4 {
+	height: 180px;
+	width: 180px;
+	position: relative;
+}
+#ss4 {
+	position: absolute;
+	top: 180px;
+	left: 210px;
+	transform: rotate(21deg) scale(.33);
+}

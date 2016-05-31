@@ -1,0 +1,23 @@
+body {
+	font-family: Monaco, monospace;
+	background-color: #f0ffff;
+	background-image: url("/img/code-css.png");
+	background-size: cover;
+	margin: 0;
+}
+img {
+	opacity: .5;
+}
+p {
+	color: #000080;
+	margin-left: 1em;
+}
+
+.fancy-heading {
+	font-size: 4em;
+	color: #fff;
+	background-color: #007ba7;
+	text-align: center;
+	padding: 1em 1em 1em 1em;
+	margin: 0;
+}

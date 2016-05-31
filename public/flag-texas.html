@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flag with CSS</title>
+	<style type="text/css">
+		body {
+			margin-top: 0;
+			transform: scale(3);
+		}
+		.flag {
+			margin-top: 0;
+			height: 200px;
+			width: 300px;
+			margin: auto;
+			background-color: #002868;
+			box-shadow: 10px 10px 15px #888;
+			position: relative;
+			top: 100px;
+		}
+		.white {
+			height: 100px;
+			width: 200px;
+			background-color: #fff;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+		.red {
+			height: 100px;
+			width: 200px;
+			background-color: #bf0a30;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+		}
+		.star {
+			background-color: #fff;			
+		}
+		.star-position {
+			width: 75px;
+			height: 75px;
+			background-color: #002868;
+			border-radius: 50%;
+			position: absolute;
+			top: 62px;
+			left: 12px;
+		}
+		.star-center {
+			height: 30px;
+			width: 30px;
+			border-radius: 50%;
+			position: absolute;
+			top: 22px;
+			left: 22px;
+		}
+		.point-top {
+			width: 0;
+			height: 0;
+			border-left: 9px solid #002868;
+			border-right: 9px solid #002868;
+			border-bottom: 25px solid #fff;
+			position: absolute;
+			left: 28px;	
+		}
+		.point-left {
+			width: 0;
+			height: 0;
+			border-top: 9px solid #002868;
+			border-bottom: 9px solid #002868;
+			border-right: 25px solid #fff;
+			position: absolute;
+			top: 19.5px;
+			left: 1px;
+			transform: rotate(19deg);
+		}
+		.point-right {
+			width: 0;
+			height: 0;
+			border-top: 9px solid #002868;
+			border-bottom: 9px solid #002868;
+			border-left: 25px solid #fff;
+			position: absolute;
+			top: 20px;
+			right: 2px;
+			transform: rotate(-19deg);
+		}
+		.point-bottom-l {
+			width: 0;
+			height: 0;
+			border-top: 9px solid #002868;
+			border-bottom: 9px solid #002868;
+			border-left: 25px solid #fff;
+			position: absolute;
+			bottom: 9px;
+			left: 10px;
+			transform: rotate(125deg);
+		}
+		.point-bottom-r {
+			width: 0;
+			height: 0;
+			border-top: 9px solid #002868;
+			border-bottom: 9px solid #002868;
+			border-left: 25px solid #fff;
+			position: absolute;
+			bottom: 9px;
+			right: 11px;
+			transform: rotate(55deg);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="flag">
+		<div class="white"></div>
+		<div class="blue">
+			<div class="star-position">
+				<div class="star star-center"></div>
+				<div class="star point-top"></div>
+				<div class="star point-left"></div>
+				<div class="star point-right"></div>
+				<div class="star point-bottom-l"></div>
+				<div class="star point-bottom-r"></div>
+			</div>
+		</div>
+		<div class="red">
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+body {
+	margin: 0;
+	font-family: Helvetica, Verdana, sans-serif;
+}
+
+div#navbar {
+	margin: 0; 
+	background-color: #c8c8c8;
+	padding: 2em;
+}
+.menu {
+	padding: .75em;
+	float: left;
+	background-color: #a0a0a0;
+}
+ul {
+	list-style-type: none;
+	color: #fff;
+}

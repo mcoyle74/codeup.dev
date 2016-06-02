@@ -5,11 +5,12 @@
 </head>
 <body>
 	
-	
+
 	<script type="text/javascript">
 		"use scrict";
 
 		var allCones = Math.floor(Math.random() * 50) + 50;
+		console.log('I have ' + allCones + ' cones to sell')
 
 		do {
 			var cones = Math.floor(Math.random() * 5) + 1;
@@ -19,6 +20,7 @@
 			} 
 			allCones -= cones;
 		} while (allCones > 0);
+		
 		console.log('Yay, I sold them all!')
 
 	</script>

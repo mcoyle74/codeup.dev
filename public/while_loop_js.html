@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>While Loop JS</title>
+</head>
+<body>
+	
+	
+	<script type="text/javascript">
+		"use scrict";
+
+		var allCones = Math.floor(Math.random() * 50) + 50;
+
+		do {
+			var cones = Math.floor(Math.random() * 5) + 1;
+			console.log(cones + ' cones sold');
+			if (allCones < cones) {
+				console.log('Cannot sell you ' + cones + ' I only have ' + allCones);
+			} 
+			allCones -= cones;
+		} while (allCones > 0);
+		console.log('Yay, I sold them all!')
+
+	</script>
+</body>
+</html>

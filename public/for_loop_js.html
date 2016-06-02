@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>For Loop JS</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		"use strict";
+
+		// for (var i = 1; i <= 10; i++) {
+		//	
+		// }
+		// 	console.log();
+
+		//Random multiplication table
+		console.log('Random multiplication tables')
+		var random = Math.floor(Math.random() * 10) + 1;
+		for (var multiplier = 1; multiplier <= 10; multiplier++) {
+			console.log(random + 'x' + multiplier + '=' + random * multiplier);
+		}
+
+		//Test for odd or even of 10 random numbers
+		console.log('Test for odd or even of 10 random numbers')
+		for (var it = 1; it <= 10; it++) {
+			var randomN = Math.floor(Math.random() * 200);
+			if (randomN <= 20) {
+				//do nothing
+			} else if (randomN % 2 == 0) {
+				console.log(randomN + ' is even');
+			} else {
+				console.log(randomN + ' is odd')
+			}
+		}
+
+		//Counting down by 5's from 100
+		console.log('Counting down by 5s from 100');
+		for (var countDown = 100; countDown >= 5; countDown -= 5) {
+			console.log(countDown)
+		}
+
+	</script>
+</body>
+</html>"

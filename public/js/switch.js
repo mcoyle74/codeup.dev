@@ -30,7 +30,7 @@ switch (luckyNumber) {
 }
 
 
-var month = (Math.floor(Math.random()* 11)) + 1;
+var month = (Math.floor(Math.random()* 12)) + 1;
 
 switch (month) {
 	case 1:

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Repeated Lucky Numbers - JS</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+	'use strict';
+
+	var luckyNumber;
+	var i = 1;
+	var n0 = 0;
+	var n1 = 0;
+	var n2 = 0;
+	var n3 = 0;
+	var n4 = 0;
+	var n5 = 0;
+
+	while (i <= 100) {
+		luckyNumber = Math.floor(Math.random() * 6);
+		i++;
+		switch (luckyNumber) {
+			case 0:
+				n0++;
+				break;
+			case 1:
+				n1++;
+				break;
+			case 2:
+				n2++;
+				break;
+			case 3:
+				n3++;
+				break;
+			case 4:
+				n4++;
+				break;
+			case 5:
+				n5++;
+				break;
+			default:
+				console.log('My javascript does not work and I do not know why')
+		}
+}
+		console.log(0 + ' appeared ' + n0 + ' times')
+		console.log(1 + ' appeared ' + n1 + ' times')
+		console.log(2 + ' appeared ' + n2 + ' times')
+		console.log(3 + ' appeared ' + n3 + ' times')
+		console.log(4 + ' appeared ' + n4 + ' times')
+		console.log(5 + ' appeared ' + n5 + ' times')
+	</script>
+
+</body>
+</html>

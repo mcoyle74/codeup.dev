@@ -8,7 +8,20 @@
 	<script type="text/javascript">
 	'use strict';
 
+	do {
+		var randomNumber = Math.floor(Math.random() * 50) + 1;
+	} while (randomNumber % 2 == 0)
+
+	console.log('Random odd number to skip is: ' + randomNumber);
 	
+	for (var i = 1; i < 50; i += 2) {
+		if (i == randomNumber) {
+			console.log('Yikes! Skipping number: ' + randomNumber);
+			continue;
+		}
+		console.log('Here is an odd number: ' + i);
+	}
+
 	</script>
 </body>
 </html>

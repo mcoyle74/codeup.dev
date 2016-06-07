@@ -15,7 +15,7 @@
 	while (i <= 100) {
 		luckyNumber = Math.floor(Math.random() * 6);
 		var count = counts[luckyNumber];
-		(count == luckyNumber) ? counts.splice(luckyNumber, 1, 1);
+		(count == luckyNumber) ? counts.splice(luckyNumber, 1, 1)
 		i++;
 		}
 		console.log(count + ' appeared ' + counts[luckyNumber] + ' times');

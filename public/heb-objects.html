@@ -1,11 +1,11 @@
 <html>
 <head>
-	<title>HEB Objects JS</title>
+    <title>HEB Objects JS</title>
 </head>
 <body>
 
-	<script type="text/javascript">
-		"use strict";
+    <script type="text/javascript">
+        "use strict";
 
 // customer name
 // product name
@@ -21,65 +21,48 @@ console.log('heb question');
 var discountCostRequirement = 200;
 var discount = 0.35;
 var newCustomer = prompt('Enter name');
-var customerArray = [];
 
 var customerObject = {
-	customerName: [],
-	productName: [],
-	productPrice: [],
+    customerName: [],
+    productName: [],
+    productPrice: [],
 
-	addNewCustomer: function() {
-			var enterNewCustomer = confirm('Do you have any new customers?');
-			do {
-				if (enterNewCustomer) {
-					var newCustomer = prompt('Enter customer name');
-					this.customerName.push(newCustomer);
-					customerObject.purchase();
-				}
-				enterNewCustomer = confirm('Would you like fries with that?');
-			} while (enterNewCustomer)
-	},
+    purchase: function() {
+        var enterNewProduct = confirm('Do you any new products');
+        do {
+            if (enterNewProduct) {
+                var newProduct = prompt('Enter product');
+                this.productName.push(newProduct);
+                var newPrice = prompt('Enter price');
+                this.productPrice.push(Number(newPrice));
+            }
+            enterNewProduct = confirm('Anything else?');
+        } while (enterNewProduct)
+    },
 
-	purchase: function() {
-		var enterNewProduct = confirm('Do you have any new products');
-		do {
-			if (enterNewProduct) {
-				var newProduct = prompt('Enter product');
-				this.productName.push(newProduct);
-				var newPrice = prompt('Enter price');
-				this.productPrice.push(Number(newPrice));
-			}
-			enterNewProduct = confirm('Anything else?');
-		} while (enterNewProduct)
-	},
+    totalCost: function() {
+        var total = 0;
+        this.productPrice.forEach(function(element, index){
+            total += element;
+        })
+        return total;
+    },
 
-	totalCost: function() {
-		var total = 0;
-		this.productPrice.forEach(function(element, index){
-			total += element;
-		})
-		return total;
-	},
-
-	costWithDiscount: function() {
-		var costWithDiscount;
-		if (this.totalCost() > discountCostRequirement) {
-			costWithDiscount = this.totalCost() - (this.totalCost() * discount);
-		} else {
-			costWithDiscount = this.totalCost();
-		}
-		console.log(costWithDiscount);
-		return costWithDiscount;
-	}
+    costWithDiscount: function() {
+        var costWithDiscount;
+        if (this.totalCost() > discountCostRequirement) {
+            costWithDiscount = this.totalCost() - (this.totalCost() * discount);
+        } else {
+            costWithDiscount = this.totalCost();
+        }
+        console.log(costWithDiscount);
+        return costWithDiscount;
+    }
 }
 
 customerObject.purchase();
-for (var i = 0; i < customerArray.length; i++) {
-	alert(customerArray[i] + ' spent ' + customerObject.totalCost() + ' so your total with discount is ' + customerObject.costWithDiscount());
-}
-customerObject.addNewCustomer();
+alert('You spent ' + customerObject.totalCost() + ' so your total with discount is ' + customerObject.costWithDiscount());
 
-
-	</script>
+    </script>
 </body>
 </html>

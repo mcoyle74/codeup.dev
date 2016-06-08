@@ -17,7 +17,7 @@
 
     // TODO: This function needs to be called once every second
     var interval = 1000;
-    var intervalId = setInterval(function updateTimer() {
+    var bomCountdown = setInterval(function updateTimer() {
         if (detonationTimer == 0) {
             alert('EXTERMINATE!');
             document.body.innerHTML = '';
@@ -31,7 +31,7 @@
     // TODO: When this function runs, it needs to
     // cancel the interval/timeout for updateTimer()
     function defuseTheBOM() {
-        clearInterval(intervalId);
+        clearInterval(bomCountdown);
         alert('Where\'s the kaboom? There was supposed to be an earth-shattering kaboom!');
     }
 

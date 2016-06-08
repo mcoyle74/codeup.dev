@@ -56,9 +56,12 @@
         listItems[0].style.color = '#00f';
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        // var subParagraphs = ;
+        var subParagraphs = document.getElementsByClassName("sub-paragraph");
+        console.log(subParagraphs);
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+        subParagraphs[0].innerHTML = "Mission Accomplished!"
+
     })();
 </script>
 </body>

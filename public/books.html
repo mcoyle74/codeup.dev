@@ -22,9 +22,9 @@
             {name: 'Clark', books: ['Selling test driven projects']}
         ];
         var friend = document.getElementById('friend');
-        var options;
+        var options = friend.innerHTML;
         friends.forEach(function (friend, i) {
-            options = '<option value="' + i + '">' + friend.name + '</option>';
+            options += ('<option value="' + i + '">' + friend.name + '</option>');
         });
         friend.innerHTML = options;
     </script>

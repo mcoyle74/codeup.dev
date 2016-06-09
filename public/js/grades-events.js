@@ -27,14 +27,18 @@ var saveName = document.getElementById('save-name');
 var enableAddButtons = document.getElementsByClassName('btn');
 
 var enableButtons = function() {
-	var checkNameEntry = document.getElementById('name').value;
-	if (checkNameEntry == null || checkNameEntry == '') {
+	var nameEntry = document.getElementById('name').value;
+	if (nameEntry == null || nameEntry == '') {
 		alert('You must enter a name to continue');
 		return false;
 	} else {
 		for (var i = 0; i < enableAddButtons.length; i++) {
 			enableAddButtons[i].disabled = false;
 		}
+		document.getElementById('student-name').innerHTML = nameEntry;
+		student.name = nameEntry;
 	}
 }
 saveName.addEventListener('click', enableButtons, false);
+
+

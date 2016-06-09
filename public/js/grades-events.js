@@ -41,4 +41,12 @@ var enableButtons = function() {
 }
 saveName.addEventListener('click', enableButtons, false);
 
+var subjectInput = document.getElementById('subject').value;
+var gradeInput = document.getElementById('grade').value;
+var addGradeButton = document.getElementById('add-grade');
+var calculateAvgButton = document.getElementById('calculate-average');
 
+var collectSubjectAndGrades = function() {
+	student.subject.push(subjectInput)
+}
+addGradeButton.addEventListener('click', collectSubjectAndGrades, false)

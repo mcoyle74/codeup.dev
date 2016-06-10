@@ -1,0 +1,46 @@
+body {
+	background-color: #333;
+}
+#calculator {
+	width: 150px;
+	position: absolute;
+
+}
+button {
+	font-family: Helvetica, Tahoma, sans-serif;
+	color: #333;
+	font-size: 1em;
+	font-weight: lighter;
+	background-color: #d0d0d0;
+	border: none;
+	height: 30px;
+	width: 30px;
+	margin: .5px;
+	float: left;
+}
+button#zero {
+	width: 61px;
+}
+#seven,
+#four,
+#one,
+#zero {
+	clear: left;
+}
+.operators {
+	background-color: #036597;
+	color: #fff;
+}
+button.top-row {
+	background-color: #a0a0a0;
+	color: #333;
+}
+input#input-1 {
+	width: 40%;
+}
+input#input-2 {
+	width: 20%;
+}
+input#input-3 {
+	width: 40%;
+}

@@ -55,5 +55,10 @@ var calculateAverageButton = document.getElementById('calculate-average');
 var addAverageToTable = function() {
 	var studentAverage = student.calculateAverage();
 	document.getElementById('student-average').innerText = studentAverage;
+	if (student.isAwesome()) {
+		document.getElementById('student-awesome').removeAttribute('class');
+	} else {
+		document.getElementById('student-practice').removeAttribute('class');
+	}
 }
 calculateAverageButton.addEventListener('click', addAverageToTable, false);

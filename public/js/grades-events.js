@@ -41,10 +41,13 @@ var saveName = function() {
 }
 saveButton.addEventListener('click', saveName, false);
 
-var subjectInput = document.getElementById('subject');
-var gradeInput = document.getElementById('grade');
-
 var saveSubjectAndGrades = function() {
+	var subjectInput = document.getElementById('subject');
+	var gradeInput = document.getElementById('grade');
 	student.addSubject(subjectInput.value, parseInt(gradeInput.value));
+	var addTableRow = document.getElementById('grades');
+	addTableRow.innerHTML = '<tr><td>' + subjectInput.value + '</td><td>' + gradeInput.value + '</td></tr>' + addTableRow.innerHTML;
+	subjectInput.value = '';
+	gradeInput.value = '';
 }
 addGradeButton.addEventListener('click', saveSubjectAndGrades, false)

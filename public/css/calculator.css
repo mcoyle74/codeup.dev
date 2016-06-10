@@ -11,7 +11,7 @@ button {
 	color: #333;
 	font-size: 1em;
 	font-weight: lighter;
-	background-color: #d0d0d0;
+	background-color: #d0d0d0; 
 	border: none;
 	height: 30px;
 	width: 30px;
@@ -27,8 +27,9 @@ button#zero {
 #zero {
 	clear: left;
 }
-.operators {
-	background-color: #036597;
+button.operators {
+	/*background-color: #036597;*/
+	background-color: #e27900;
 	color: #fff;
 }
 button.top-row {

@@ -38,13 +38,18 @@ button.top-row {
 }
 input {
 	text-align: right;
+	color: #fff;
+	background-color: #444;
 }
 input#input-1 {
-	width: 40%;
+	width: 52px;
 }
 input#input-2 {
-	width: 20%;
+	width: 23px;
 }
 input#input-3 {
-	width: 40%;
+	width: 52px;
+}
+form {
+	margin-bottom: 1px;
 }

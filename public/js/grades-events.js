@@ -23,30 +23,28 @@ var student = {
 	}
 }
 
-var saveName = document.getElementById('save-name');
-var enableAddButtons = document.getElementsByClassName('btn');
+var saveButton = document.getElementById('save-name');
+var addGradeButton = document.getElementById('add-grade');
+var calculateAverageButton = document.getElementById('calculate-average');
 
-var enableButtons = function() {
+var saveName = function() {
 	var nameEntry = document.getElementById('name').value;
 	if (nameEntry == null || nameEntry == '') {
 		alert('You must enter a name to continue');
 		return false;
 	} else {
-		for (var i = 0; i < enableAddButtons.length; i++) {
-			enableAddButtons[i].disabled = false;
-		}
-		document.getElementById('student-name').innerHTML = nameEntry;
-		student.name = nameEntry;
+		addGradeButton.removeAttribute('disabled');
+		calculateAverageButton.removeAttribute('disabled');
 	}
+	document.getElementById('student-name').innerHTML = nameEntry;
+	student.name = nameEntry;
 }
-saveName.addEventListener('click', enableButtons, false);
+saveButton.addEventListener('click', saveName, false);
 
 var subjectInput = document.getElementById('subject').value;
 var gradeInput = document.getElementById('grade').value;
-var addGradeButton = document.getElementById('add-grade');
-var calculateAvgButton = document.getElementById('calculate-average');
 
-var collectSubjectAndGrades = function() {
+var saveSubjectAndGrades = function() {
 	student.subject.push(subjectInput)
 }
-addGradeButton.addEventListener('click', collectSubjectAndGrades, false)
+addGradeButton.addEventListener('click', saveSubjectAndGrades, false)

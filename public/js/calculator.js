@@ -1,28 +1,27 @@
 "use strict";
 
-var buttonPush = getElementsByClassName('button');
 
-var clearButton = getElementById('clear')
-var plusminusButton = getElementById('equals');
-var percentButton = getElementById('equals');
+var clearButton = document.getElementById('clear');
+var plusminusButton = document.getElementById('equals');
+var percentButton = document.getElementById('equals');
 
-var oneButton = getElementById('one');
-var twoButton = getElementById('two');
-var threeButton = getElementById('three');
-var fourButton = getElementById('four');
-var fiveButton = getElementById('five');
-var sixButton = getElementById('six');
-var sevenButton = getElementById('seven');
-var eightButton = getElementById('eight');
-var nineButton = getElementById('nine');
-var zeroButton = getElementById('zero');
+var oneButton = document.getElementById('one');
+var twoButton = document.getElementById('two');
+var threeButton = document.getElementById('three');
+var fourButton = document.getElementById('four');
+var fiveButton = document.getElementById('five');
+var sixButton = document.getElementById('six');
+var sevenButton = document.getElementById('seven');
+var eightButton = document.getElementById('eight');
+var nineButton = document.getElementById('nine');
+var zeroButton = document.getElementById('zero');
 
-var pointButton = getElementById('point');
-var divideButton = getElementById('divide');
-var multiplyButton = getElementById('');
-var subtractButton = getElementById('');
-var addButton = getElementById('');
-var equalsButton = getElementById('equals');
+var pointButton = document.getElementById('point');
+var divideButton = document.getElementById('divide');
+var multiplyButton = document.getElementById('multiply');
+var subtractButton = document.getElementById('subtract');
+var addButton = document.getElementById('add');
+var equalsButton = document.getElementById('equals');
 
 var add = function() {
 
@@ -38,7 +37,14 @@ var divide = function() {
 }
 
 var inputCalculateDisplay = function () {
-	
+	console.log('You pushed a button')
 }
 
-buttonPush.addEventListener('click', inputCalculateDisplay, false);
+var buttonReader = function() {
+	var buttonPush = document.getElementsByTagName('button');
+	for (var i = 0; i < buttonPush.length; i++) {
+		buttonPush[i].addEventListener('click', inputCalculateDisplay, false);
+	}
+
+}
+buttonReader();

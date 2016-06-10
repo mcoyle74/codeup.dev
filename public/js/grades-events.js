@@ -25,7 +25,6 @@ var student = {
 
 var saveButton = document.getElementById('save-name');
 var addGradeButton = document.getElementById('add-grade');
-var calculateAverageButton = document.getElementById('calculate-average');
 
 var saveName = function() {
 	var nameEntry = document.getElementById('name');
@@ -50,4 +49,11 @@ var saveSubjectAndGrades = function() {
 	subjectInput.value = '';
 	gradeInput.value = '';
 }
-addGradeButton.addEventListener('click', saveSubjectAndGrades, false)
+addGradeButton.addEventListener('click', saveSubjectAndGrades, false);
+
+var calculateAverageButton = document.getElementById('calculate-average');
+var addAverageToTable = function() {
+	var studentAverage = student.calculateAverage();
+	document.getElementById('student-average').innerText = studentAverage;
+}
+calculateAverageButton.addEventListener('click', addAverageToTable, false);

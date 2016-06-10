@@ -43,13 +43,13 @@ input {
 	border: solid 1px #333;
 }
 input#input-1 {
-	width: 52px;
+	width: 54px;
 }
 input#input-2 {
-	width: 23px;
+	width: 20px;
 }
 input#input-3 {
-	width: 52px;
+	width: 54px;
 }
 form {
 	margin-bottom: 1px;

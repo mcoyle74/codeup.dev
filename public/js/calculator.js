@@ -23,28 +23,13 @@ var subtractButton = document.getElementById('subtract');
 var addButton = document.getElementById('add');
 var equalsButton = document.getElementById('equals');
 
-var add = function() {
-
-}
-var subtract = function() {
-
-}
-var multiply = function() {
-
-}
-var divide = function() {
-
-}
-
-var inputCalculateDisplay = function () {
-	console.log('You pushed a button')
-}
-
-var buttonReader = function() {
-	var buttonPush = document.getElementsByTagName('button');
+var processInput = function () {
 	for (var i = 0; i < buttonPush.length; i++) {
-		buttonPush[i].addEventListener('click', inputCalculateDisplay, false);
+		console.log(buttonPush[i])
 	}
-
 }
-buttonReader();
+
+var buttonPush = document.getElementsByTagName('button');
+for (var i = 0; i < buttonPush.length; i++) {
+	buttonPush[i].addEventListener('click', processInput, false);
+}

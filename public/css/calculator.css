@@ -1,25 +1,26 @@
 body {
 	background-color: #333;
 	font-family: Trebuchet, Helvetica, sans-serif; 
-	font-size: 1em;
-	font-weight: lighter;
 }
 #calculator {
-	width: 128px;
+	width: 310px;
 	position: absolute;
-
+	top: 20px;
+	left: 20px;
 }
 button {
-	color: #333;
+	font-size: 2.25em;
+	font-weight: lighter;
+	color: #000;
 	background-color: #d0d0d0; 
 	border: none;
-	height: 30px;
-	width: 30px;
+	height: 75px;
+	width: 75px;
 	margin: 1px;
 	float: left;
 }
 button#zero {
-	width: 62px;
+	width: 152px;
 }
 #seven,
 #four,
@@ -37,20 +38,23 @@ button.top-row {
 	color: #333;
 }
 input {
+	font-size: 1.2em;
+	font-weight: lighter;
 	text-align: right;
 	color: #fff;
 	background-color: #444;
-	border: solid 1px #333;
+	border: solid 2px #333;
+	line-height: 2em;
 }
 input#input-1 {
-	width: 54px;
+	width: 138px;
 }
 input#input-2 {
-	width: 20px;
+	width: 34px;
 }
 input#input-3 {
-	width: 54px;
+	width: 138px;
 }
 form {
-	margin-bottom: 1px;
+	margin-bottom: 2px;
 }

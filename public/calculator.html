@@ -7,38 +7,38 @@
 <body>
 	<div id="calculator">
 		<div class="row" id="row-0">
-			<form>
-				<input class="input" id="input-1" type="number" value="0" readonly><input class="input" id="input-2" type="number" readonly><input class="input" id="input-3" type="number" readonly>
+			<form name="input-display">
+				<input class="input" id="input-1" type="number" name="input-display-left" value="0" readonly><input class="input" id="input-2" type="number" name="input-display-operator" readonly><input class="input" id="input-3" type="number" name="input-display-right" readonly>
 			</form>
 		</div>
 		<div class="row" id="row-1">
-			<button class="button top-row" id="clear" type="button">c</button>
-			<button class="button top-row operators" id="plus-minus" type="button">&plusmn;</button>
-			<button class="button top-row operators" id="percent" type="button">%</button>
-			<button class="button operators" id="divide" type="button">&divide;</button>
+			<button class="button top-row" id="clear" type="button" value="">c</button>
+			<button class="button top-row operators" id="plus-minus" type="button" value="-1">&plusmn;</button>
+			<button class="button top-row operators" id="percent" type="button" value=".01">%</button>
+			<button class="button operators" id="divide" type="button" value="/">&divide;</button>
 		</div>
 		<div class="row" id="row-2">
-			<button class="button digit" id="seven" type="button">7</button>
-			<button class="button digit" id="eight" type="button">8</button>
-			<button class="button digit" id="nine" type="button">9</button>
-			<button class="button operators" id="multiply" type="button">&times;</button>
+			<button class="button digit" id="seven" type="button" value="7">7</button>
+			<button class="button digit" id="eight" type="button" value="8">8</button>
+			<button class="button digit" id="nine" type="button" value="9">9</button>
+			<button class="button operators" id="multiply" type="button" value="*">&times;</button>
 		</div>
 		<div class="row" id="row-3">
-			<button class="button digit" id="four" type="button">4</button>
-			<button class="button digit" id="five" type="button">5</button>
-			<button class="button digit" id="six" type="button">6</button>
-			<button class="button operators" id="subtract" type="button">&minus;</button>
+			<button class="button digit" id="four" type="button" value="4">4</button>
+			<button class="button digit" id="five" type="button" value="5">5</button>
+			<button class="button digit" id="six" type="button" value="6">6</button>
+			<button class="button operators" id="subtract" type="button" value="-">&minus;</button>
 		</div>
 		<div class="row" id="row-4">
-			<button class="button digit" id="one" type="button">1</button>
-			<button class="button digit" id="two" type="button">2</button>
-			<button class="button digit" id="three" type="button">3</button>
-			<button class="button operators" id="add" type="button">+</button>
+			<button class="button digit" id="one" type="button" value="1">1</button>
+			<button class="button digit" id="two" type="button" value="2">2</button>
+			<button class="button digit" id="three" type="button" value="3">3</button>
+			<button class="button operators" id="add" type="button" value="+">+</button>
 		</div>
 		<div class="row" id="row-5">
-			<button class="button digit" id="zero" type="button">0</button>
-			<button class="button digit" id="point" type="button">.</button>
-			<button class="button operators" id="equals" type="button">=</button>
+			<button class="button digit" id="zero" type="button" value="0">0</button>
+			<button class="button digit" id="point" type="button" value=".">.</button>
+			<button class="button operators" id="equals" type="button" value="=">=</button>
 		</div>
 	</div>
 

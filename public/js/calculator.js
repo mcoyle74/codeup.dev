@@ -23,13 +23,35 @@ var subtractButton = document.getElementById('subtract');
 var addButton = document.getElementById('add');
 var equalsButton = document.getElementById('equals');
 
-var processInput = function () {
-	for (var i = 0; i < buttonPush.length; i++) {
-		console.log(buttonPush[i])
-	}
+function clearDisplay() {
+	console.log('Clear button pushed')
 }
 
-var buttonPush = document.getElementsByTagName('button');
-for (var i = 0; i < buttonPush.length; i++) {
-	buttonPush[i].addEventListener('click', processInput, false);
+var processInputOperator = function() {
+
 }
+
+var processInputEquals = function() {
+
+}
+
+var processInput = function () {
+	// console.log(digitButtonPush[i]);
+	console.log(this.value);
+}
+
+clearButton.addEventListener('click', clearDisplay);
+plusminusButton.addEventListener('click', processInput);
+percentButton.addEventListener('click', processInput);
+
+var digitButtonPush = document.getElementsByClassName('digit');
+for (var i = 0; i < digitButtonPush.length; i++) {
+	digitButtonPush[i].addEventListener('click', processInput);
+}
+
+var operatorButtonPush = document.getElementsByClassName('operators')
+for (var i = 0; i < operatorButtonPush.length; i++) {
+	operatorButtonPush[i].addEventListener('click', processInputOperator);
+}
+
+equalsButton.addEventListener('click', processInputEquals);

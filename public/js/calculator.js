@@ -22,66 +22,74 @@ var subtractButton = document.getElementById('subtract');
 var addButton = document.getElementById('add');
 var equalsButton = document.getElementById('equals');
 
-var inputLeft = document.getElementById('input-1');
-var inputCenter = document.getElementById('input-2');
-var inputRight = document.getElementById('input-3');
 
-var processInputs = function () {
-	display.operandLeft += this.value;
+var processInputsLeft = function () {
+	if (display.operator == '') { 
+		display.operandLeft += this.value;
+		display.output();
+	} else {
+		display.operandRight += this.value;
+		display.output();
+	}
+}
+
+var processInputsCenter = function() {
+	display.operator = this.value;
 	display.output();
 }
 
 var display = {
+	inputLeft: document.getElementById('input-1'),
+	inputCenter: document.getElementById('input-2'),
+	inputRight: document.getElementById('input-3'),
 	operandLeft: '',
 	operandRight: '',
 	operator: '',
 	output:	function() {
-		document.getElementById('input-1').value = this.operandLeft;
+		this.inputLeft.value = this.operandLeft;
+		this.inputCenter.value = this.operator;
+		this.inputRight.value = this.operandRight;
 	},
-	clear: function () {
-		document.getElementById('input-1').value = '0';
-		document.getElementById('input-2').value = '';
-		document.getElementById('input-3').value = '';
-		this.operandLeft = '';
-		this.operandRight = '';
-		this.operator = '';
+	clear: function() {
+		display.inputLeft.value = '';
+		display.inputCenter.value = '';
+		display.inputRight.value = '';
+		display.operandLeft = '';
+		display.operandRight = '';
+		display.operator = '';
 	},
-	
 	answer: function () {
-		this.clear;
 		var calculation;
-		if (this.operator == '/') {
-			calculation = parseFloat(this.operandLeft) / parseFloat(this.operandRight);
-			
-		} else if (this.operator == '*') {
-			calculation = parseFloat(this.operandLeft) * parseFloat(this.operandRight);
-			
-		} else if (this.operator == '+') {
-			calculation = parseFloat(this.operandLeft) + parseFloat(this.operandRight);
-			
-		} else if (this.operator == '-') {
-			calculation = parseFloat(this.operandLeft) - parseFloat(this.operandRight);
-
+		if (display.operator == '/') {
+			calculation = parseFloat(display.operandLeft) / parseFloat(display.operandRight);
+			display.inputLeft.value = calculation;
+		} else if (display.operator == '*') {
+			calculation = parseFloat(display.operandLeft) * parseFloat(display.operandRight);
+			display.inputLeft.value = calculation;
+		} else if (display.operator == '+') {
+			calculation = parseFloat(display.operandLeft) + parseFloat(display.operandRight);
+			display.inputLeft.value = calculation;
+		} else if (display.operator == '-') {
+			calculation = parseFloat(display.operandLeft) - parseFloat(display.operandRight);
+			display.inputLeft.value = calculation;
 		} else {
-			return "Error";
+			display.inputLeft.value = "Error";
 		}
-		return calculation;
 	}
 };
 
-
 clearButton.addEventListener('click', display.clear, false);
-plusminusButton.addEventListener('click', display.processInputs, false);
-percentButton.addEventListener('click', display.processInputs, false);
+plusminusButton.addEventListener('click', display.processInputsLeft, false);
+percentButton.addEventListener('click', display.processInputsLeft, false);
 
 var digitButtonPush = document.getElementsByClassName('digit', false);
 for (var i = 0; i < digitButtonPush.length; i++) {
-	digitButtonPush[i].addEventListener('click', processInputs, false);
+	digitButtonPush[i].addEventListener('click', processInputsLeft, false);
 }
 
 var operatorButtonPush = document.getElementsByClassName('operators')
 for (var i = 0; i < operatorButtonPush.length; i++) {
-	operatorButtonPush[i].addEventListener('click', display.processInputs, false);
+	operatorButtonPush[i].addEventListener('click', processInputsCenter, false);
 }
 
 equalsButton.addEventListener('click', display.answer, false);

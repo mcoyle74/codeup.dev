@@ -22,6 +22,7 @@ var subtractButton = document.getElementById('subtract');
 var addButton = document.getElementById('add');
 var equalsButton = document.getElementById('equals');
 
+var	completed = false;
 
 var processInputsLeft = function () {
 	if (display.operator == '') { 
@@ -34,8 +35,15 @@ var processInputsLeft = function () {
 }
 
 var processInputsCenter = function() {
-	display.operator = this.value;
-	display.output();
+	if (this.value == '-1') {
+		display.operandLeft.value *= -1
+
+	} else if (this.value == '%') {
+		display.operandLeft *= 0.01
+	} else {
+		display.operator = this.value;
+		display.output();
+	}
 }
 
 var display = {
@@ -60,18 +68,22 @@ var display = {
 	},
 	answer: function () {
 		var calculation;
-		if (display.operator == '/') {
+		if ((display.operator == '/') && (display.operandRight != 0)) {
 			calculation = parseFloat(display.operandLeft) / parseFloat(display.operandRight);
-			display.inputLeft.value = calculation;
+			display.operandLeft = calculation;
+			display.output();
 		} else if (display.operator == '*') {
 			calculation = parseFloat(display.operandLeft) * parseFloat(display.operandRight);
-			display.inputLeft.value = calculation;
+			display.operandLeft = calculation;
+			display.output();
 		} else if (display.operator == '+') {
 			calculation = parseFloat(display.operandLeft) + parseFloat(display.operandRight);
-			display.inputLeft.value = calculation;
+			display.operandLeft = calculation;
+			display.output();
 		} else if (display.operator == '-') {
 			calculation = parseFloat(display.operandLeft) - parseFloat(display.operandRight);
-			display.inputLeft.value = calculation;
+			display.operandLeft = calculation;
+			display.output();
 		} else {
 			display.inputLeft.value = "Error";
 		}

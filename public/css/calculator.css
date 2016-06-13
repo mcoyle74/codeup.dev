@@ -41,7 +41,7 @@ button.top-row {
 	color: #333;
 }
 input {
-	font-size: 1.2em;
+	font-size: 1.5em;
 	font-weight: lighter;
 	color: #fff;
 	background-color: #444;
@@ -51,6 +51,7 @@ input {
 input#input-1 {
 	width: 138px;
 	text-align: right;
+	padding-right: 10px;
 }
 input#input-2 {
 	width: 34px;
@@ -59,6 +60,7 @@ input#input-2 {
 input#input-3 {
 	width: 138px;
 	text-align: right;
+	padding-right: 10px;
 }
 form {
 	margin-bottom: 2px;

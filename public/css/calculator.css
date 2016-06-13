@@ -2,6 +2,9 @@ body {
 	background-color: #333;
 	font-family: Trebuchet, Helvetica, sans-serif; 
 }
+h1 {
+	float: right;
+}
 #calculator {
 	width: 310px;
 	position: absolute;

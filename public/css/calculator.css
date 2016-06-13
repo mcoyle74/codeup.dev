@@ -19,6 +19,14 @@ button {
 	margin: 1px;
 	float: left;
 }
+button.digit:active,
+button.top-row:active {
+	background-color: #606060;
+}
+button.operators:active,
+button#equals:active {
+	background-color: #9e5500;
+}
 button#zero {
 	width: 152px;
 }

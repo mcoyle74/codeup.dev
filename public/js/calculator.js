@@ -42,6 +42,9 @@ var display = {
 		document.getElementById('input-1').value = '0';
 		document.getElementById('input-2').value = '';
 		document.getElementById('input-3').value = '';
+		this.operandLeft = '';
+		this.operandRight = '';
+		this.operator = '';
 	},
 	
 	answer: function () {

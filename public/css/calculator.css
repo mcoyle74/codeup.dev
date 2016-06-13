@@ -4,6 +4,8 @@ body {
 }
 h1 {
 	float: right;
+	color: #eee;
+	margin-right: 50px;
 }
 #calculator {
 	width: 310px;
@@ -22,23 +24,24 @@ button {
 	margin: 1px;
 	float: left;
 }
-button.digit:hover,
-button.top-row:hover {
+button.digit:hover {
 	color: #fff;
 }
-button.digit:active,
-button.top-row:active {
+button.digit:active {
 	background-color: #606060;
 }
 button.operators:active,
 button#equals:active {
-	background-color: #9e5500;
+	background-color: #7d2424;
 }
 button.operators:hover,
+button.top-row:hover,
 button#equals:hover {
 	color: #000;
 }
-
+button.top-row:active {
+	background-color: #2a445f;
+}
 button#zero {
 	width: 152px;
 }
@@ -50,15 +53,19 @@ button#zero {
 }
 button.operators,
 button#equals {
+	/*  blue  */
 	/*background-color: #036597;*/
-	/*background-color: #c03838;*/
-	background-color: #e27900;
+	/*  iOS orange  */
+	/*background-color: #e27900;*/
+	/*  red  */
+	background-color: #c03838;
 	color: #fff;
 }
 button.top-row {
-	/*background-color: #406992;*/
-	background-color: #a0a0a0;
-	color: #333;
+	/*background-color: #a0a0a0;*/
+	/*  blue  */
+	background-color: #406992;
+	color: #fff;
 }
 input {
 	font-size: 1.5em;

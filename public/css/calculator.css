@@ -19,6 +19,10 @@ button {
 	margin: 1px;
 	float: left;
 }
+button.digit:hover,
+button.top-row:hover {
+	color: #fff;
+}
 button.digit:active,
 button.top-row:active {
 	background-color: #606060;
@@ -27,6 +31,11 @@ button.operators:active,
 button#equals:active {
 	background-color: #9e5500;
 }
+button.operators:hover,
+button#equals:hover {
+	color: #000;
+}
+
 button#zero {
 	width: 152px;
 }

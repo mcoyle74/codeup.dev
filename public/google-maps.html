@@ -17,39 +17,53 @@
 	(function() {
 		"use strict";
 
+		var artpaceLatLng = {lat: 29.43, lng: -98.4941}
 		// Set our map options
 		var mapOptions = {
 			// Set the zoom level
-			zoom: 19,
+			zoom: 18,
 
-			// This sets the center of the map at our location
-			center: {
-				lat:  29.426791,
-				lng: -98.489602
-			}
+			// This sets the center of the map at Artpace
+			center: artpaceLatLng
 		};
 		var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
-		// Set our address to geocode
-		var address = "445 N Main Ave, San Antonio, TX, 78205";
-
-		// Init geocoder object
-		var geocoder = new google.maps.Geocoder();
-
-		// Geocode our address
-		geocoder.geocode({ "address": address }, function(results, status) {
-
-			// Check for a successful result
-			if (status == google.maps.GeocoderStatus.OK) {
-
-			// Recenter the map over the address
-			map.setCenter(results[0].geometry.location);
-			} else {
-
-				// Show an error message with the status if our request fails
-				alert("Geocoding was not successful - STATUS: " + status);
-			}
+		var artpaceImage = '/img/artpace_logo.gif'
+		var marker = new google.maps.Marker({
+			position: artpaceLatLng,
+			map: 'map-canvas',
+			title: 'artpace',
+			animation: google.maps.Animation.DROP,
 		});
+
+		var artpaceInfoWindow = new google.maps.InfoWindow({
+			content: '<img src="/img/artpace_logo.gif">'
+		});
+
+		marker.addListener('click', function() {
+			artpaceInfoWindow.open(map, marker);
+		});
+		marker.setMap(map);
+
+		// Geocoding
+		// var address = "445 N Main Ave, San Antonio, TX, 78205";
+
+		// var geocoder = new google.maps.Geocoder();
+
+		// // Geocode our address
+		// geocoder.geocode({ "address": address }, function(results, status) {
+
+		// 	// Check for a successful result
+		// 	if (status == google.maps.GeocoderStatus.OK) {
+
+		// 	// Recenter the map over the address
+		// 	map.setCenter(results[0].geometry.location);
+		// 	} else {
+
+		// 		// Show an error message with the status if our request fails
+		// 		alert("Geocoding was not successful - STATUS: " + status);
+		// 	}
+		// });
 	})();
 	</script>
 </body>

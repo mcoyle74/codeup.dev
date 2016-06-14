@@ -4,7 +4,7 @@
 	<title>Google Maps API</title>
 	<style type="text/css">
 		#map-canvas {
-			height: 500px;
+			height: 600px;
 		}
 	</style>
 </head>
@@ -21,63 +21,79 @@
 		{
 			"title": "artpace",
 			"address": "445 N Main, San Antonio, TX, 78205",
-			"infoWindowImg": "/img/artpace_logo.gif",
-			"infoWindowContent": ""
+			"location": {
+				lat: 29.429795,
+				lng: -98.494391
+			},
+			"infoWindowContent": "<div><img src=\"/img/artpace_logo.gif\"></div><div><p>Contemporary gallery and artist residency program</p><p>445 N Main Ave<br>San Antonio, TX 78205</p><p><a href=\"http://www.artpace.org\">artpace.org</a></p></div>"
 		},
 		{
 			"title": "mcnay",
 			"address": "6000 N New Braunfels Ave, San Antonio, TX 78209",
-			"infoWindowImg": "",
-			"infoWindowContent": ""
+			"location": {
+				lat: 29.485620,
+				lng: -98.457547
+			},
+			"infoWindowContent": "<div style=\"float: left\"><img src=\"/img/mcnay.jpg\" style=\"margin-right: 10px\"></div><div><p>6000 N New Braunfels Ave<br>San Antonio, TX 78209</p><p>The McNay Art Museum engages a diverse community in the discovery and enjoyment of the visual arts.\"</p><p><a href=\"http://www.mcnayart.org\">mcnayart.org</a></p></div>"
 		},
 		{
 			"title": "sama",
 			"address": "200 W Jones Ave, San Antonio, TX, 78215",
-			"infoWindowImg": "",
-			"infoWindowContent": ""
+			"location": {
+				lat: 29.437191,
+				lng: -98.482041
+			},
+			"infoWindowContent": "<div><img src=\"/img/sama_logo.jpg\"></div><div><p>200 W Jones Ave<br>San Antonio, TX 78215</p><p>Insert info about San Antonio Musuem of Art</p><p><a href=\"https://www.samuseum.org\">samuseum.org</a></p></div>"
 		}
 		];
 
 		// Set our map options
 		var mapOptions = {
 			// Set the zoom level
-			zoom: 18,
+			zoom: 13,
 
 			// This sets the center of the map at Artpace
-			center: favoritePlaces[0].location
+			center: {
+				lat: 29.457001,
+				lng: -98.473087
+			}
 		};
 		var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
-		var artpaceImage = '/img/artpace_logo.gif'
-		var marker = new google.maps.Marker({
-			position: favoritePlaces[0].location,
-			map: 'map-canvas',
-			title: 'artpace',
-			animation: google.maps.Animation.DROP,
-		});
+		favoritePlaces.forEach(function(place, index) {
 
-		var artpaceInfoWindow = new google.maps.InfoWindow({
-			content: '<div><img src="/img/artpace_logo.gif"></div><div><p>Contemporary gallery and artist residency program</p><p>445 N Main Ave<br>San Antonio, TX 78205</p><p><a href="http://www.artpace.org">artpace.org</a></p></div>'
-		});
+			var marker = new google.maps.Marker({
+				position: place.location,
+				map: 'map-canvas',
+				title: place.title,
+				animation: google.maps.Animation.DROP,
+			});
 
-		marker.addListener('click', function() {
-			artpaceInfoWindow.open(map, marker);
+			var infoWindow = new google.maps.InfoWindow({
+				content: place.infoWindowContent
+			});
+
+			marker.addListener('click', function() {
+				infoWindow.open(map, marker);
+			});
+			console.log(marker);
+			marker.setMap(map);
 		});
-		marker.setMap(map);
 
 		// Geocoding
 		// var address = "445 N Main Ave, San Antonio, TX, 78205";
 
 		// var geocoder = new google.maps.Geocoder();
+		// geocoder.geocode({ "address": index.address });
 
 		// // // Geocode our address
-		// geocoder.geocode({ "address": address }, function(results, status) {
+			// , function(results, status) {
 
 		// // 	// Check for a successful result
-		// 	if (status == google.maps.GeocoderStatus.OK) {
+			// if (status == google.maps.GeocoderStatus.OK) {
 
 		// // 	// Recenter the map over the address
-		// 	map.setCenter(results[0].geometry.location);
+			// map.setCenter(results[0].geometry.location);
 		// 	} else {
 
 		// // 		// Show an error message with the status if our request fails

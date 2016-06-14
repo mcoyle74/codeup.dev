@@ -17,20 +17,40 @@
 	(function() {
 		"use strict";
 
-		var artpaceLatLng = {lat: 29.43, lng: -98.4941}
+		var favoritePlaces = [
+		{
+			"title": "artpace",
+			"address": "445 N Main, San Antonio, TX, 78205",
+			"infoWindowImg": "/img/artpace_logo.gif",
+			"infoWindowContent": ""
+		},
+		{
+			"title": "mcnay",
+			"address": "6000 N New Braunfels Ave, San Antonio, TX 78209",
+			"infoWindowImg": "",
+			"infoWindowContent": ""
+		},
+		{
+			"title": "sama",
+			"address": "200 W Jones Ave, San Antonio, TX, 78215",
+			"infoWindowImg": "",
+			"infoWindowContent": ""
+		}
+		];
+
 		// Set our map options
 		var mapOptions = {
 			// Set the zoom level
 			zoom: 18,
 
 			// This sets the center of the map at Artpace
-			center: artpaceLatLng
+			center: favoritePlaces[0].location
 		};
 		var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
 		var artpaceImage = '/img/artpace_logo.gif'
 		var marker = new google.maps.Marker({
-			position: artpaceLatLng,
+			position: favoritePlaces[0].location,
 			map: 'map-canvas',
 			title: 'artpace',
 			animation: google.maps.Animation.DROP,
@@ -46,24 +66,24 @@
 		marker.setMap(map);
 
 		// Geocoding
-		var address = "445 N Main Ave, San Antonio, TX, 78205";
+		// var address = "445 N Main Ave, San Antonio, TX, 78205";
 
-		var geocoder = new google.maps.Geocoder();
+		// var geocoder = new google.maps.Geocoder();
 
-		// // Geocode our address
-		geocoder.geocode({ "address": address }, function(results, status) {
+		// // // Geocode our address
+		// geocoder.geocode({ "address": address }, function(results, status) {
 
-		// 	// Check for a successful result
-			if (status == google.maps.GeocoderStatus.OK) {
+		// // 	// Check for a successful result
+		// 	if (status == google.maps.GeocoderStatus.OK) {
 
-		// 	// Recenter the map over the address
-			map.setCenter(results[0].geometry.location);
-			} else {
+		// // 	// Recenter the map over the address
+		// 	map.setCenter(results[0].geometry.location);
+		// 	} else {
 
-		// 		// Show an error message with the status if our request fails
-				alert("Geocoding was not successful - STATUS: " + status);
-			}
-		});
+		// // 		// Show an error message with the status if our request fails
+		// 		alert("Geocoding was not successful - STATUS: " + status);
+		// 	}
+		// });
 	})();
 	</script>
 </body>

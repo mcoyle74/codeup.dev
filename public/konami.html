@@ -2,10 +2,11 @@
 <html>
 <head>
 	<title>Konami Code</title>
+	<link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<h1>Konami Code</h1>
-	<p class="hidden" hidden>You got an extra life!</p>
+	<h2 class="hidden" hidden>You got an extra life!</h2>
 	<img class="hidden" src="/img/Jumping_Mario.png" hidden>
 	<audio id="one-up"><source src="/js/smb_1-up.wav" type="audio/wav"></audio>
 
@@ -29,7 +30,8 @@
 			}
 
 			if (index == konamiCode.length) {
-				$('body').css('background-color', '#333').css('color', '#0066ff');
+				$('h1').html('Mario says:')
+				$('body').css('background-color', '#333').css('color', '#0066ff').css('font-family', '\'Press Start 2P\', cursive');
 				$('.hidden').removeAttr('hidden');
 				oneUp.play();
 			}

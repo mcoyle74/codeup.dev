@@ -94,6 +94,10 @@
 		$('a').click(function(event) {
 			$('dd').toggleClass('invisible');
 		});
+
+		$('ul').each(function(index, element) {
+			$(element).children().first().css('font-weight', 'bold');
+		});
 	</script>
 </body>
 </html>

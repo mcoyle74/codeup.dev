@@ -98,6 +98,10 @@
 		$('ul').each(function(index, element) {
 			$(element).children().first().css('font-weight', 'bold');
 		});
+
+		$('li').click(function() {
+			$(this).parent().toggleClass('invisible')
+		});
 	</script>
 </body>
 </html>

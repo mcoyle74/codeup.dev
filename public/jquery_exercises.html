@@ -4,13 +4,13 @@
 	<title>JQuery</title>
 </head>
 <body>
-	<h1 class="heading" id="h1">JQuery is awesome.</h1>
+	<h1 class="heading codeup" id="h1">JQuery is awesome.</h1>
 	<div>
-		<h2 class="heading" id="h2-1">Star Wars is awesome.</h2>
+		<h2 class="heading codeup" id="h2-1">Star Wars is awesome.</h2>
 		<p class="paragraph" id="skywalker">Lucas ipsum dolor sit amet naboo jar hutt darth hutt darth mandalore mothma ponda tatooine. Fett mon skywalker darth skywalker. Kessel droid yoda watto. Grievous moff jinn leia darth. Calrissian maul mothma darth c-3p0 chewbacca calrissian owen. Vader dooku anakin mustafar vader kashyyyk. Luuke kessel darth baba organa baba. Dantooine ventress coruscant darth darth solo organa. Mace mandalorians darth ahsoka kessel skywalker. Skywalker bothan c-3p0 jade c-3p0 jinn moff antilles. Dooku mace maul alderaan solo jawa jinn maul darth.</p>
 	</div>
-	<h2 class="heading" id="h2-2">Star Wars characters:</h2>
-	<ul class="ul" id="characters">
+	<h2 class="heading codeup" id="h2-2">Star Wars characters:</h2>
+	<ul class="ul" id="codeup">
 		<li class="li" id="">Darth Vader</li>
 		<li class="li" id="">Princess Leia</li>
 		<li class="li" id="">Luke Skywalker</li>
@@ -20,11 +20,8 @@
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script>
 		$(document).ready(function() {
-			alert('The DOM has finished loading!')
-		});
-		$(document).ready(function() {
-			var skywalker = $('#skywalker');
-			alert(skywalker.html());
+			var $codeup = $('.codeup');
+			$codeup.css('border', '1px solid #f00');
 		});
 	</script>
 </body>

@@ -19,12 +19,23 @@
 	</ul>
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script>
+		'use strict';
+
 		$(document).ready(function() {
-			var $li = $('li');
-			$li.css('font-size', '20px');
-			var $heading1 = $('h1');
-			var $paragraph = $('p');
-			alert($heading1.html());
+			$('h1').click(function() {
+				$(this).css('background-color', '#0f0');
+			});
+			$('p').dblclick(function() {
+				$(this).css('font-size', '18px');
+			});
+			$('li').hover(
+				function() {
+					$(this).css('color', '#f22');
+				},
+				function() {
+					$(this).css('color', '#fff');
+				}
+			);
 		});
 	</script>
 </body>

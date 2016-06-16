@@ -30,10 +30,22 @@
     var $tbody = $('#friends');
     var $sortName = $('#sort');
     var friends = [
-        {name: 'Oliver', books: ['Ansible for DevOps', 'Servers for hackers']},
-        {name: 'Barry', books: ['Working effectively with unit tests', '50 quick ideas for your tests']},
-        {name: 'Jessica', books: ['Understanding the 4 rules of simple design', 'Principles of package design']},
-        {name: 'Clark', books: ['Selling test driven projects']}
+        {
+            name: 'Oliver',
+            books: ['Ansible for DevOps', 'Servers for hackers']
+        },
+        {
+            name: 'Barry',
+            books: ['Working effectively with unit tests', '50 quick ideas for your tests']
+        },
+        {
+            name: 'Jessica',
+            books: ['Understanding the 4 rules of simple design', 'Principles of package design']
+        },
+        {
+            name: 'Clark',
+            books: ['Selling test driven projects']
+        }
     ];
     var buildTableRows = function (friends) {
         var table = '';
@@ -57,10 +69,10 @@
     var sortTable = function (event) {
         event.preventDefault();
         sortFriendsByName(friends);
-        $('tbody').html(buildTableRows(friends));
+        $tbody.html(buildTableRows(friends));
     }
 
-    $('tbody').html(buildTableRows(friends));
+    $tbody.html(buildTableRows(friends));
     $sortName.click(sortTable);
 </script>
 </body>

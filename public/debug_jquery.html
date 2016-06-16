@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+</head>
+<body>
+<!--
+1. Fix the issue sorting the table elements.
+2. Use jQuery
+3. Use as many best practices as you can.
+4. Work in pairs.
+-->
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                <a class="sort" class="header" href="#">Friend</a>
+            </th>
+            <td class="header">Books</td>
+        </tr>
+    </thead>
+    <tbody id="friends">
+    </tbody>
+</table>
+<script>
+    var tbody = document.getElementById('friends');
+    var sortName = document.getElementsByClassName('sort');
+    var friends = [
+        {name: 'Oliver', books: ['Ansible for DevOps', 'Servers for hackers']},
+        {name: 'Barry', books: ['Working effectively with unit tests', '50 quick ideas for your tests']},
+        {name: 'Jessica', books: ['Understanding the 4 rules of simple design', 'Principles of package design']},
+        {name: 'Clark', books: ['Selling test driven projects']}
+    ];
+    var buildTableRows = function (friends) {
+        var table = '';
+        friends.forEach(function (friend)  {
+            table += '<tr><td>' + friend.name + '</td><td>' + friend.books.join(', ') + '</td></tr>';
+        });
+
+        return table;
+    }
+    var sortFriendsByName = function(friends) {
+        friends.sort(function (friendA, friendB) {
+            if (friendA.name < friendB.name) {
+                return -1;
+            }
+            if (friendA.name > friendB.name) {
+                return 1;
+            }
+            return 0;
+        });
+    };
+    var sortTable = function (event) {
+        event.preventDefault();
+        sortFriendsByName(friends);
+        tbody.innerHTML = buildTableRows(friends);
+    }
+
+    tbody.innerHTML = buildTableRows(friends);
+    sortName.addEventListener('click', sortTable)
+</script>
+</body>
+</html>

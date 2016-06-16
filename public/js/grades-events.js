@@ -23,42 +23,42 @@ var student = {
 	}
 }
 
-var saveButton = document.getElementById('save-name');
-var addGradeButton = document.getElementById('add-grade');
+var saveButton = $('#save-name');
+var addGradeButton = $('#add-grade');
 
 var saveName = function() {
-	var nameEntry = document.getElementById('name');
+	var nameEntry = $('#name');
 	if (nameEntry == null || nameEntry == '') {
 		alert('You must enter a name to continue');
 		return false;
 	} else {
-		addGradeButton.removeAttribute('disabled');
-		calculateAverageButton.removeAttribute('disabled');
+		addGradeButton.removeAttr('disabled');
+		calculateAverageButton.removeAttr('disabled');
 	}
-	document.getElementById('student-name').innerText = nameEntry.value;
+	$('#student-name').text(nameEntry.val());
 	student.name = nameEntry;
 }
-saveButton.addEventListener('click', saveName, false);
+saveButton.on('click', saveName);
 
 var saveSubjectAndGrades = function() {
-	var subjectInput = document.getElementById('subject');
-	var gradeInput = document.getElementById('grade');
-	student.addSubject(subjectInput.value, parseInt(gradeInput.value));
-	var addTableRow = document.getElementById('grades');
-	addTableRow.innerHTML = '<tr><td>' + subjectInput.value + '</td><td>' + gradeInput.value + '</td></tr>' + addTableRow.innerHTML;
-	subjectInput.value = '';
-	gradeInput.value = '';
+	var subjectInput = $('#subject');
+	var gradeInput = $('#grade');
+	student.addSubject(subjectInput.val(), parseInt(gradeInput.val()));
+	var addTableRow = $('#grades');
+	addTableRow.html('<tr><td>' + subjectInput.val() + '</td><td>' + gradeInput.val() + '</td></tr>' + addTableRow.html());
+	subjectInput.val('');
+	gradeInput.val('');
 }
-addGradeButton.addEventListener('click', saveSubjectAndGrades, false);
+addGradeButton.click(saveSubjectAndGrades);
 
-var calculateAverageButton = document.getElementById('calculate-average');
+var calculateAverageButton = $('#calculate-average');
 var addAverageToTable = function() {
 	var studentAverage = student.calculateAverage();
-	document.getElementById('student-average').innerText = studentAverage;
+	$('#student-average').innerText = studentAverage;
 	if (student.isAwesome()) {
-		document.getElementById('student-awesome').removeAttribute('class');
+		$('#student-awesome').removeAttr('class');
 	} else {
-		document.getElementById('student-practice').removeAttribute('class');
+		$('#student-practice').removeAttr('class');
 	}
 }
-calculateAverageButton.addEventListener('click', addAverageToTable, false);
+calculateAverageButton.click(addAverageToTable);

@@ -23,6 +23,7 @@ var student = {
 	}
 }
 
+$('#name').focus();
 var saveButton = $('#save-name');
 var addGradeButton = $('#add-grade');
 

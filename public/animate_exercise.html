@@ -38,6 +38,7 @@
         "use strict";
 
         var box = $('#animate-box')
+
         // TODO: "Move It" should move the box 100 pixels to the left
         $('#btn-move').click(function() {
             box.animate({
@@ -46,6 +47,11 @@
         });
 
         // TODO: "Scale It" should expand the box width by 50%
+        $('#btn-scale').click(function() {
+            box.animate({
+                width: "375px"
+            })
+        });
 
         // TODO: "Hide It" should use opacity to make the box invisible
 

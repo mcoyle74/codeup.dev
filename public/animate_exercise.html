@@ -36,7 +36,14 @@
     <script>
     $(document).ready(function() {
         "use strict";
+
+        var box = $('#animate-box')
         // TODO: "Move It" should move the box 100 pixels to the left
+        $('#btn-move').click(function() {
+            box.animate({
+                left: "100"
+            })
+        });
 
         // TODO: "Scale It" should expand the box width by 50%
 

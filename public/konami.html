@@ -17,7 +17,7 @@
 	<h1>Konami Code</h1>
 	<p>Do you know it?</p>
 	<h2 class="hidden"></h2>
-	<img class="hidden" src="/img/Jumping_Mario.png">
+	<img class="hidden" id="mario" src="/img/Jumping_Mario.png">
 	<audio id="one-up"><source src="/js/smb_1-up.wav" type="audio/wav"></audio>
 	<audio id="game-over"><source src="/smb_gameover.wav" type="audio/wav"></audio>
 
@@ -43,7 +43,7 @@
 				index = 0;
 				$body.css('background-image', 'url(/img/game_over.jpg)').css('background-size', 'cover');
 				$body.children().toggleClass('hidden');
-				$('img').attr('hidden');
+				$('#mario').addClass('hidden');
 				gameOver.play();
 				window.setTimeout(function() {
 					location.reload();

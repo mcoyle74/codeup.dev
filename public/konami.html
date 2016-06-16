@@ -5,6 +5,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
 	<style type="text/css">
 		body {
+			font-family: 'Press Start 2P', cursive;
 			background-color: #333;
 			color: #ddd;
 		}
@@ -15,7 +16,7 @@
 </head>
 <body>
 	<h1>Konami Code</h1>
-	<p>Do you know it?</p>
+	<p>Remember those NES cheat codes?</p>
 	<h2 class="hidden"></h2>
 	<img class="hidden" id="mario" src="/img/Jumping_Mario.png">
 	<audio id="one-up"><source src="/js/smb_1-up.wav" type="audio/wav"></audio>
@@ -51,7 +52,7 @@
 			}
 
 			if (index == konamiCode.length) {
-				$body.css('color', '#0066ff').css('font-family', '\'Press Start 2P\', cursive');
+				$body.css('color', '#0066ff');
 				$('h2').html('You got an extra life!');
 				$body.children().each(function(index, element) {
 					$(element).toggleClass('hidden');

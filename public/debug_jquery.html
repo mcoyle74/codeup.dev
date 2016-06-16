@@ -16,7 +16,7 @@
     <thead>
         <tr>
             <th>
-                <a class="sort" class="header" href="#">Friend</a>
+                <a id="sort" class="header" href="#">Friend</a>
             </th>
             <td class="header">Books</td>
         </tr>
@@ -26,7 +26,7 @@
 </table>
 <script>
     var tbody = document.getElementById('friends');
-    var sortName = document.getElementsByClassName('sort');
+    var sortName = document.getElementById('sort');
     var friends = [
         {name: 'Oliver', books: ['Ansible for DevOps', 'Servers for hackers']},
         {name: 'Barry', books: ['Working effectively with unit tests', '50 quick ideas for your tests']},

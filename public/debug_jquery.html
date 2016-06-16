@@ -24,9 +24,11 @@
     <tbody id="friends">
     </tbody>
 </table>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script>
-    var tbody = document.getElementById('friends');
-    var sortName = document.getElementById('sort');
+    var $tbody = $('#friends');
+    var $sortName = $('#sort');
     var friends = [
         {name: 'Oliver', books: ['Ansible for DevOps', 'Servers for hackers']},
         {name: 'Barry', books: ['Working effectively with unit tests', '50 quick ideas for your tests']},
@@ -55,11 +57,11 @@
     var sortTable = function (event) {
         event.preventDefault();
         sortFriendsByName(friends);
-        tbody.innerHTML = buildTableRows(friends);
+        $('tbody').html(buildTableRows(friends));
     }
 
-    tbody.innerHTML = buildTableRows(friends);
-    sortName.addEventListener('click', sortTable)
+    $('tbody').html(buildTableRows(friends));
+    $sortName.click(sortTable);
 </script>
 </body>
 </html>

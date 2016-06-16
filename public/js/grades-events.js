@@ -48,6 +48,7 @@ var saveSubjectAndGrades = function() {
 	addTableRow.html('<tr><td>' + subjectInput.val() + '</td><td>' + gradeInput.val() + '</td></tr>' + addTableRow.html());
 	subjectInput.val('');
 	gradeInput.val('');
+	subjectInput.focus();
 }
 addGradeButton.click(saveSubjectAndGrades);
 

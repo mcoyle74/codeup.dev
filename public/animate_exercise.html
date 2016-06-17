@@ -27,7 +27,8 @@
 		<button id="btn-right">Right</button>
 		<button id="btn-up">Up</button>
 		<button id="btn-down">Down</button>
-		<button id="btn-scale">Scale It</button>
+		<button id="btn-scale-up">Scale Up</button>
+		<button id="btn-scale-down">Scale Down</button>
 		<button id="btn-hide">Hide It</button>
 		<button id="btn-show">Show It</button>
 		<button id="btn-all">Animate All</button>
@@ -63,9 +64,16 @@
 			})
 		});
 
-		$('#btn-scale').click(function() {
+		$('#btn-scale-up').click(function() {
 			box.animate({
-				width: "375px"
+				height: "+=20px",
+				width: "+=20px"
+			})
+		});
+		$('#btn-scale-down').click(function() {
+			box.animate({
+				height: "-=20px",
+				width: "-=20px"
 			})
 		});
 

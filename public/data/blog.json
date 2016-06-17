@@ -1,20 +1,39 @@
 [
-    {
-        "title": "My First Blog Post",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "categories": [
-            "greek"
-        ],
-        "date": "January 25, 2015"
-    }, {
-        "title": "The Second Post",
-        "content": "Cupcake ipsum dolor sit amet gummies. Cake chocolate sweet ice cream oat cake biscuit bear claw dessert. Jujubes marzipan toffee apple pie pastry dragée jujubes marshmallow. Dragée chocolate gingerbread liquorice chocolate bar jujubes. Sweet chocolate bar jelly-o chocolate cake candy carrot cake cotton candy macaroon marzipan. Sweet roll biscuit sweet gummies topping sesame snaps tootsie roll sugar plum pie. Sweet muffin croissant chocolate cake chupa chups. Donut croissant gummies donut powder ice cream. Chupa chups halvah apple pie topping jelly beans donut candy canes donut. Bonbon cake gummi bears cheesecake tart topping powder liquorice gummi bears.",
-        "categories": [
-            "family",
-            "candy",
-            "sweets",
-            "sugar"
-        ],
-        "date": "February 14, 2015"
-    }
+	{
+		"title": "My First Blog Post",
+		"content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		"categories": [
+			"greek"
+		],
+		"date": "January 25, 2015"
+	}, {
+		"title": "The Second Post",
+		"content": "Cupcake ipsum dolor sit amet gummies. Cake chocolate sweet ice cream oat cake biscuit bear claw dessert. Jujubes marzipan toffee apple pie pastry dragée jujubes marshmallow. Dragée chocolate gingerbread liquorice chocolate bar jujubes. Sweet chocolate bar jelly-o chocolate cake candy carrot cake cotton candy macaroon marzipan. Sweet roll biscuit sweet gummies topping sesame snaps tootsie roll sugar plum pie. Sweet muffin croissant chocolate cake chupa chups. Donut croissant gummies donut powder ice cream. Chupa chups halvah apple pie topping jelly beans donut candy canes donut. Bonbon cake gummi bears cheesecake tart topping powder liquorice gummi bears.",
+		"categories": [
+			"family",
+			"candy",
+			"sweets",
+			"sugar"
+		],
+		"date": "February 14, 2015"
+	}, {
+		"title": "Codeup",
+		"content": "Luis ipsum color div prework cameron string css properties values quiz javascript debugging. JQuery ajax methods concatenation hypertext markup language codeup dot dev, functions called noAbbreviationsGavin. Class id pseudo elements keyboard shortcuts rubber ducking, git status, vagrant status, vagrant up. Switch breack continue for if, else if, numbers and booleans. Arrays objects and functions, oh my! Hoisting, manipulating, iterating continue google maps api. bom and dom events and selectors documents getElementById && addEventListener",
+		"categories": [
+			"tech",
+			"education",
+			"career"
+		],
+		"date": "May 27, 2016"
+	}, {
+		"title": "The Force Awakens!",
+		"content": "Lucas ipsum dolor sit amet hutt obi-wan moff sebulba dantooine maul palpatine grievous anakin hutt. Owen dantooine owen vader. Han darth sidious leia kenobi. Hutt mara hutt obi-wan mara solo dooku darth kessel. Solo jabba fisto fett jabba utapau utapau. Luke moff mara jade luuke darth ahsoka ahsoka. Aayla hutt hutt skywalker qui-gon kessel solo boba darth. R2-d2 twi'lek darth tatooine skywalker ahsoka utapau. Darth fett dooku jango. Yoda chewbacca jango hoth palpatine ben. Hutt jango windu hutt moff vader grievous. Leia lobot moff organa jango aayla. Tatooine ewok ventress palpatine jawa. Kit jawa greedo ewok kenobi sidious kamino jawa sith. C-3po mandalorians ben bothan darth kenobi kenobi ventress moff. Organa mustafar qui-gonn organa grievous darth ben r2-d2. Moff moff vader yavin windu lando qui-gon. Solo solo mothma skywalker kenobi c-3po dooku fett ponda. Alderaan owen gamorrean jango. Windu organa thrawn sith organa ben lando lobot. Lobot owen skywalker jade. Secura ackbar darth hutt han darth k-3po.",
+		"categories": [
+			"pop culture",
+			"movies",
+			"The Force",
+			"awesomeness"
+		],
+		"date": "June 17, 2016"
+	}
 ]

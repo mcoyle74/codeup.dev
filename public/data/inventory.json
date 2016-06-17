@@ -8,12 +8,20 @@
 		"price": 20
 	}, {
 		"title": "Drills",
-		"quantity": 5,
+		"quantity": 16,
 		"categories": [
 			"tool",
 			"powered"
 		],
 		"price": 100
+	}, {
+		"title": "Miter Saws",
+		"quantity": 7,
+		"categories": [
+			"tool",
+			"powered"
+		],
+		"price": 300
 	}, {
 		"title": "Mowers",
 		"quantity": 5,
@@ -51,6 +59,12 @@
 			"tool"
 		],
 		"price": 25
+	}, {
+		"title": "Tape Measures",
+		"quantity": 9,
+		"categories": [
+			"tool"
+		],
+		"price": 6
 	}
-
 ]

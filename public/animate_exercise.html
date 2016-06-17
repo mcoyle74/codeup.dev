@@ -31,6 +31,7 @@
 		<button id="btn-scale-down">Scale Down</button>
 		<button id="btn-hide">Hide</button>
 		<button id="btn-show">Show</button>
+		<button id="btn-morph">Morph</button>
 		<button id="btn-all">Animate</button>
 		<button id="btn-reset">Reset</button>
 	</p>
@@ -89,6 +90,11 @@
 				opacity: "1"
 			})
 		});
+		$('#btn-morph').click(function() {
+			box.animate({
+				borderRadius: "50%"
+			}, 500)
+		});
 
 		$('#btn-all').click(function() {
 			box.animate({
@@ -113,7 +119,8 @@
 				top: "0",
 				height: "100px",
 				width: "100px",
-				opacity: "1"
+				opacity: "1",
+				borderRadius: "0"
 			}, 500)
 		})
 

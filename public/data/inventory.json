@@ -1,34 +1,56 @@
 [
-    {
-        "title": "Hammer",
-        "quantity": 25,
-        "categories": [
-            "tool"
-        ],
-        "price": 20
-    }, {
-        "title": "Drill",
-        "quantity": 5,
-        "categories": [
-            "tool",
-            "powered"
-        ],
-        "price": 100
-    }, {
-        "title": "Mower",
-        "quantity": 5,
-        "categories": [
-            "tool",
-            "gas",
-            "outdoor"
-        ],
-        "price": 200
-    }, {
-        "title": "Screwdrivers",
-        "quantity": 25,
-        "categories": [
-            "tool"
-        ],
-        "price": 10
-    }
+	{
+		"title": "Hammers",
+		"quantity": 25,
+		"categories": [
+			"tool"
+		],
+		"price": 20
+	}, {
+		"title": "Drills",
+		"quantity": 5,
+		"categories": [
+			"tool",
+			"powered"
+		],
+		"price": 100
+	}, {
+		"title": "Mowers",
+		"quantity": 5,
+		"categories": [
+			"tool",
+			"gas",
+			"outdoor"
+		],
+		"price": 200
+	}, {
+		"title": "Screwdrivers",
+		"quantity": 25,
+		"categories": [
+			"tool"
+		],
+		"price": 10
+	}, {
+		"title": "Clamps",
+		"quantity": 50,
+		"categories": [
+			"tool"
+		],
+		"price": 15
+	}, {
+		"title": "Wrenchs",
+		"quantity": 30,
+		"categories": [
+			"tool"
+		],
+		"price": 12
+	}, {
+		"title": "Hand Saws",
+		"quantity": 13,
+		"categories": [
+			"tool"
+		],
+		"price": 25
+	}
+
 ]

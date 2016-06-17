@@ -15,9 +15,9 @@
 		#animate-box {
 			background-color: #000033;
 			height: 100px;
+			width: 100px;
 			margin: 15px;
 			position: relative;
-			width: 100px;
 		}
 	</style>
 </head>
@@ -114,9 +114,30 @@
 				height: "100px",
 				width: "100px",
 				opacity: "1"
-			}, 1200)
+			}, 500)
 		})
 
+		var keyID = [37, 38, 39, 40];
+		$(document).keydown(function(event) {
+			console.log(event.keyCode);
+			if (event.keyCode == keyID[0]) {
+				box.animate({
+					left: "-=50px"
+				}, 50)
+			} else if (event.keyCode == keyID[1]) {
+				box.animate({
+					top: "-=50px"
+				}, 50)
+			} else if (event.keyCode == keyID[2]) {
+				box.animate({
+					left: "+=50px"
+				}, 50)
+			} else if (event.keyCode == keyID[3]) {
+				box.animate({
+					top: "+=50px"
+				}, 50)
+			}
+		});
 	});
 	</script>
 </body>

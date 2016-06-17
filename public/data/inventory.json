@@ -66,5 +66,47 @@
 			"tool"
 		],
 		"price": 6
+	}, {
+		"title": "Nails",
+		"quantity": 150,
+		"categories": [
+			"hardware"
+		],
+		"price": 3
+	}, {
+		"title": "Screws",
+		"quantity": 115,
+		"categories": [
+			"hardware"
+		],
+		"price": 8
+	}, {
+		"title": "Italian",
+		"quantity": 10,
+		"categories": [
+			"sandwhichs"
+		],
+		"price": 7
+	}, {
+		"title": "Roast Beef",
+		"quantity": 9,
+		"categories": [
+			"sandwhichs"
+		],
+		"price": 8
+	}, {
+		"title": "Turkey",
+		"quantity": 12,
+		"categories": [
+			"sandwhichs"
+		],
+		"price": 7
+	}, {
+		"title": "Veggie",
+		"quantity": 9,
+		"categories": [
+			"sandwhichs"
+		],
+		"price": 5
 	}
 ]

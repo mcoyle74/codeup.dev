@@ -92,24 +92,28 @@
 
 		$('#btn-all').click(function() {
 			box.animate({
-				left: "100",
-				width: "375px"
-			}, 1500).animate({
+				left: "500px",
+				top: "100px",
+				height: "300px",
+				width: "500px"
+			}, 2000).animate({
 				opacity: "0"
-			}, 1500).animate({
-				left: '0',
-				width: '250px',
-				opacity: '1'
+			}, 2000).animate({
+				left: "0",
+				top: "0",
+				height: "500px",
+				width: "300px",
+				opacity: "1"
 			}, 1500)
 		});
 
 		$('#btn-reset').click(function() {
 			box.animate({
-				left: '0',
-				top: '0',
-				height: '100px',
-				width: '100px',
-				opacity: '1'
+				left: "0",
+				top: "0",
+				height: "100px",
+				width: "100px",
+				opacity: "1"
 			}, 1200)
 		})
 

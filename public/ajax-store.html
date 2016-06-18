@@ -51,7 +51,6 @@
 (function() {
 	"use strict";
 
-	// TODO: Create an ajax GET request for /data/inventory.json
 	var insertProducts = $('#insertProducts');
 
 	function getInventory() {
@@ -59,8 +58,14 @@
 		console.log('Ajax call completed successfully.');
 		inventory.forEach(function(tool) {
 			var tableRow = '';
-			tableRow += insertProducts.append('<tr><td>' + tool.title + '</td><td>' + tool.quantity + '</td><td>$' + tool.price + '</td><td>' + tool.categories.join(', ') + '</td></tr>');
-			});	
+			tableRow += '<tr>'
+			tableRow += '<td>' + tool.title + '</td>';
+			tableRow +=	'<td>' + tool.quantity + '</td>';
+			tableRow +=	'<td>$' + tool.price + '</td>';
+			tableRow += '<td>' + tool.categories.join(', ') + '</td>';
+			tableRow += '</tr>';
+			insertProducts.append(tableRow);
+		});	
 		});
 	}
 

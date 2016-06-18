@@ -2,17 +2,20 @@
 <html>
 <head>
 	<title>Animate</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
 	<style>
 		html, body {
+			background-color: #f4f4f4;
 			margin: 0px;
 			padding: 0;
 		}
-		#btn-animate {
-			margin: 15px;
-		}
-
 		#animate-box {
-			background-color: #333;
+			background-color: #303030;
 			height: 100px;
 			width: 100px;
 			margin: 15px;
@@ -23,28 +26,42 @@
 			width: 90px;
 			visibility: hidden;
 		}
+		#btn-left {
+			margin-left: 15px;
+		}
+		.btn {
+			padding: 7px;
+			background-color: #4080f0;
+			color: #fff;
+			margin-top: 5px;
+			border-radius: 8px;
+		}
 	</style>
 </head>
 <body>
-	<p>
-		<button id="btn-left">Left</button>
-		<button id="btn-right">Right</button>
-		<button id="btn-up">Up</button>
-		<button id="btn-down">Down</button>
-		<button id="btn-scale-up">Scale Up</button>
-		<button id="btn-scale-down">Scale Down</button>
-		<button id="btn-hide">Hide</button>
-		<button id="btn-show">Show</button>
-		<button id="btn-morph">Morph</button>
-		<button id="btn-all">Animate</button>
-		<button id="btn-mario">Mario</button>
-		<button id="btn-reset">Reset</button>
-	</p>
+	<div>
+		<button class="btn" id="btn-left">Left</button>
+		<button class="btn" id="btn-right">Right</button>
+		<button class="btn" id="btn-up">Up</button>
+		<button class="btn" id="btn-down">Down</button>
+		<button class="btn" id="btn-scale-up">Scale Up</button>
+		<button class="btn" id="btn-scale-down">Scale Down</button>
+		<button class="btn" id="btn-hide">Hide</button>
+		<button class="btn" id="btn-show">Show</button>
+		<button class="btn" id="btn-morph">Morph</button>
+		<button class="btn" id="btn-all">Animate</button>
+		<button class="btn" id="btn-mario">Mario</button>
+		<button class="btn" id="btn-reset">Reset</button>
+	</div>
 
 	<div id="animate-box">
 		<img id="mario" src="/img/Jumping_Mario.png">
 	</div>
 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+		integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+		crossorigin="anonymous">
+	</script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="/js/animate_exercise.js"></script>
 </body>

@@ -84,28 +84,36 @@
 		"title": "Italian",
 		"quantity": 10,
 		"categories": [
-			"sandwhichs"
+			"sandwichs"
 		],
 		"price": 7
 	}, {
 		"title": "Roast Beef",
 		"quantity": 9,
 		"categories": [
-			"sandwhichs"
+			"sandwichs"
 		],
 		"price": 8
 	}, {
 		"title": "Turkey",
 		"quantity": 12,
 		"categories": [
-			"sandwhichs"
+			"sandwichs"
 		],
 		"price": 7
+	}, {
+		"title": "Bacon Bleu Cheeseburger",
+		"quantity": 4,
+		"categories": [
+			"sandwiches",
+			"hot sandwiches"
+		],
+		"price": 11
 	}, {
 		"title": "Veggie",
 		"quantity": 9,
 		"categories": [
-			"sandwhichs"
+			"sandwichs"
 		],
 		"price": 5
 	}

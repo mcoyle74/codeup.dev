@@ -84,21 +84,21 @@
 		"title": "Italian",
 		"quantity": 10,
 		"categories": [
-			"sandwichs"
+			"sandwiches"
 		],
 		"price": 7
 	}, {
 		"title": "Roast Beef",
 		"quantity": 9,
 		"categories": [
-			"sandwichs"
+			"sandwiches"
 		],
 		"price": 8
 	}, {
 		"title": "Turkey",
 		"quantity": 12,
 		"categories": [
-			"sandwichs"
+			"sandwiches"
 		],
 		"price": 7
 	}, {
@@ -113,7 +113,7 @@
 		"title": "Veggie",
 		"quantity": 9,
 		"categories": [
-			"sandwichs"
+			"sandwiches"
 		],
 		"price": 5
 	}

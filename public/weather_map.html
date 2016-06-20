@@ -101,6 +101,7 @@
 			}).done(function(forecast) {
 				console.log(forecast);
 				var forecast3day = $('#forecast3day');
+				forecast3day.html('');
 				forecast.list.forEach(function(day) {
 					forecast3day.append(
 						'<div class="forecast col-sm-4">' + 
@@ -112,8 +113,7 @@
 						'</div>'
 						);
 				})
-			console.log('Latitude: ' + latitude);
-			console.log('Longitude: ' + longitude);
+			place.html(forecast.city.name);
 			});
 		});
 	</script>

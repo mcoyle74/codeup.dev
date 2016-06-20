@@ -5,8 +5,6 @@
 	<style type="text/css">
 		.forecast {
 			float: left;
-		}
-		.forecast-info {
 			text-align: center;
 		}
 	</style>
@@ -16,29 +14,7 @@
 <div class="container">
 	<h1>Weather Application</h1>
 	<h2 id="location">San Antonio</h2>
-	<div class="forecast" id="day1">
-		<p class="forecast-info temperature" id="temperature1"></p>
-		<img class="weather-icon" src="">
-		<p class="forecast-info clouds" id="clouds1">Clouds: </p>
-		<p class="forecast-info humidity" id="humidity1">Humidity: </p>
-		<p class="forecast-info wind" id="wind1">Wind: </p>
-		<p class="forecast-info pressure" id="pressure1">Pressure: </p>
-	</div>
-	<div class="forecast" id="day2">
-		<p class="forecast-info temperature" id="temperature2"></p>
-		<img class="weather-icon" src="">
-		<p class="forecast-info clouds" id="clouds2">Clouds: </p>
-		<p class="forecast-info humidity" id="humidity2">Humidity: </p>
-		<p class="forecast-info wind" id="wind2">Wind: </p>
-		<p class="forecast-info pressure" id="pressure2">Pressure: </p>
-	</div>
-	<div class="forecast" id="day3">
-		<p class="forecast-info temperature" id="temperature3"></p>
-		<img class="weather-icon" src="">
-		<p class="forecast-info clouds" id="clouds3">Clouds: </p>
-		<p class="forecast-info humidity" id="humidity3">Humidity: </p>
-		<p class="forecast-info wind" id="wind3">Wind: </p>
-		<p class="forecast-info pressure" id="pressure3">Pressure: </p>
+	<div class="forecast" id="forecast3day">
 	</div>
 </div>
 
@@ -46,23 +22,26 @@
 <script type="text/javascript">
 	'use strict';
 
-	$.get('http://api.openweathermap.org/data/2.5/weather', {
+	$.get('http://api.openweathermap.org/data/2.5/forecast/daily', {
 		APPID: '16d4c1bdb3097dd5a2e01eebdba6fe53',
 		lat: 29.42,
 		lon: -98.49,
-		units: 'imperial'
+		units: 'imperial',
+		cnt: 3
 	}).done(function(forecast) {
 		console.log(forecast);
-		var temperature = $('#temperature1');
-		var clouds = $('#clouds1');
-		var humidity = $('#humidity1');
-		var wind = $('#wind1');
-		var pressure = $('#pressure1');
-		temperature = temperature.html(forecast.main.temp  + ' F');
-		humidity = humidity.append(forecast.main.humidity);
-		pressure.append(forecast.main.pressure);
-		clouds.append(forecast.clouds.all);
-		wind.append(forecast.wind.speed);
+		var forecast3day = $('#forecast3day');
+		forecast.list.forEach(function(day) {
+			forecast3day.append(
+				'<div class="forecast">' + 
+					'<p>' + day.temp.max + '/' + day.temp.min + '&deg;</p>' +
+					'<img src="http://openweathermap.org/img/w/' + day.weather[0].icon + '.png">' +
+					'<p>Clouds: ' + day.clouds + '%</p>' +
+					'<p>Humidity: ' + day.humidity + '%</p>' +
+					'<p>Wind: ' + day.speed + 'mph</p>' +
+				'</div>'
+				);
+		})
 	});
 </script>
 </body>

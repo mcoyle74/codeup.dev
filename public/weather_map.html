@@ -1,48 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Weather Map</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
 	<style type="text/css">
 		.forecast {
 			float: left;
 			text-align: center;
+			background-color: #e0e0e0;
+			border: 1px solid #ccc;
+		}
+		#weather-application {
+			background-color: #87ceeb;
+		}
+		.col-md-4 {
+			padding: 1% 10%;
+		}
+		.row {
+			margin: 5px;
 		}
 	</style>
 </head>
 <body>
-
-<div class="container">
-	<h1>Weather Application</h1>
-	<h2 id="location">San Antonio</h2>
-	<div class="forecast" id="forecast3day">
+	<div class="container" id="weather-application">
+		<h1>Weather Application</h1>
+		<h2 id="location">San Antonio</h2>
+		<div class="row" id="forecast3day">
+		</div>
+		
 	</div>
-</div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script type="text/javascript">
-	'use strict';
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		'use strict';
 
-	$.get('http://api.openweathermap.org/data/2.5/forecast/daily', {
-		APPID: '16d4c1bdb3097dd5a2e01eebdba6fe53',
-		lat: 29.42,
-		lon: -98.49,
-		units: 'imperial',
-		cnt: 3
-	}).done(function(forecast) {
-		console.log(forecast);
-		var forecast3day = $('#forecast3day');
-		forecast.list.forEach(function(day) {
-			forecast3day.append(
-				'<div class="forecast">' + 
-					'<p>' + day.temp.max + '/' + day.temp.min + '&deg;</p>' +
-					'<img src="http://openweathermap.org/img/w/' + day.weather[0].icon + '.png">' +
-					'<p>Clouds: ' + day.clouds + '%</p>' +
-					'<p>Humidity: ' + day.humidity + '%</p>' +
-					'<p>Wind: ' + day.speed + 'mph</p>' +
-				'</div>'
-				);
-		})
-	});
-</script>
+		$.get('http://api.openweathermap.org/data/2.5/forecast/daily', {
+			APPID: '16d4c1bdb3097dd5a2e01eebdba6fe53',
+			lat: 29.42,
+			lon: -98.49,
+			units: 'imperial',
+			cnt: 3
+		}).done(function(forecast) {
+			console.log(forecast);
+			var forecast3day = $('#forecast3day');
+			forecast.list.forEach(function(day) {
+				forecast3day.append(
+					'<div class="forecast col-sm-4">' + 
+						'<p>' + day.temp.max + '&deg;/' + day.temp.min + '&deg;</p>' +
+						'<img src="http://openweathermap.org/img/w/' + day.weather[0].icon + '.png">' +
+						'<p>Clouds: ' + day.clouds + '%</p>' +
+						'<p>Humidity: ' + day.humidity + '%</p>' +
+						'<p>Wind: ' + day.speed + 'mph</p>' +
+					'</div>'
+					);
+			})
+		});
+	</script>
 </body>
 </html>

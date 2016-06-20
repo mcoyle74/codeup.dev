@@ -12,17 +12,18 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
 	<style type="text/css">
-		.forecast {
-			float: left;
+		body {
+			background-color: #357;
+		}
+		h1,
+		h2,
+		label {
+			color: #fff;
+		}
+		.col-sm-4 {
 			text-align: center;
 			background-color: #e0e0e0;
-			border: 1px solid #ccc;
-		}
-		#weather-application {
-			background-color: #87ceeb;
-		}
-		.col-md-4 {
-			padding: 1% 10%;
+			border: 1px solid #888;
 		}
 		.row {
 			margin: 5px;
@@ -39,6 +40,10 @@
 			font-size: 1.2em;
 			font-weight: bold;
 		}
+		#map-canvas {
+			height: 400px;
+			margin-top: 10px;
+		}
 	</style>
 </head>
 <body>
@@ -54,11 +59,11 @@
 				<button class="btn btn-success" id="btn-update" type="button">Update</button>
 		</form>
 	</div>
-	<div class="container-fluid">
-	</div>
+	<div class="container-fluid" id="map-canvas"></div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCU1V2H7_6Fzw8z2GGimwi0herlv7pPsmY"></script>
 	<script type="text/javascript">
 		'use strict';
 
@@ -86,6 +91,27 @@
 					);
 			})
 		});
+
+		var mapOptions = {
+			zoom: 4,
+			center: {
+				lat: 39,
+				lng: -98.5
+			}
+		};
+		var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+		var marker = new google.maps.Marker({
+				position: {
+					lat: 39,
+					lng: -98.5
+				},
+				map: 'map-canvas',
+				draggable: true,
+				title: 'Drag me!',
+				animation: google.maps.Animation.DROP
+		});
+		marker.setMap(map);
 
 		updateButton.click(function(event) {
 			var lat = $('#latitude');
@@ -116,6 +142,7 @@
 			place.html(forecast.city.name);
 			});
 		});
+
 	</script>
 </body>
 </html>

@@ -94,7 +94,7 @@ $(document).ready(function() {
 				opacity: "1",
 				borderRadius: "0"
 			}, 500)
-			box.css('background-color', '#808080');
+			box.css('background-color', '#303030');
 			mario.css({
 				'visibility': 'hidden',
 				'height': '90px',

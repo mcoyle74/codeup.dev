@@ -2,8 +2,39 @@
 <html>
 <head>
 	<title>Weather Map</title>
+	<style type="text/css">
+		.forecast {
+			float: left;
+		}
+		.forecast-info {
+			text-align: center;
+		}
+	</style>
 </head>
 <body>
+
+<div class="container">
+	<h1>Weather Application</h1>
+	<h2 id="location">San Antonio</h2>
+	<div class="forecast" id="day1">
+		<p class="forecast-info" id="clouds1">clouds</p>
+		<p class="forecast-info" id="humidity1">humidity</p>
+		<p class="forecast-info" id="wind1">wind</p>
+		<p class="forecast-info" id="pressure1">pressure</p>
+	</div>
+	<div class="forecast" id="day2">
+		<p class="forecast-info" id="clouds2">clouds</p>
+		<p class="forecast-info" id="humidity2">humidity</p>
+		<p class="forecast-info" id="wind2">wind</p>
+		<p class="forecast-info" id="pressure2">pressure</p>
+	</div>
+	<div class="forecast" id="day3">
+		<p class="forecast-info" id="clouds3">clouds</p>
+		<p class="forecast-info" id="humidity3">humidity</p>
+		<p class="forecast-info" id="wind3">wind</p>
+		<p class="forecast-info" id="pressure3">pressure</p>
+	</div>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript">

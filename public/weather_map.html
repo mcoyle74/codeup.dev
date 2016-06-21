@@ -33,8 +33,8 @@
 			display: inline;
 			width: 25%;
 		}
-		.form-group {
-			margin: 10px;
+		#input-and-button {
+			text-align: center;
 		}
 		.temperature {
 			font-size: 1.2em;
@@ -47,64 +47,68 @@
 	</style>
 </head>
 <body>
-	<div class="container-fluid" id="weather-application">
+	<div class="container" id="weather-application">
 		<h1>Weather Application</h1>
 		<h2 id="place">San Antonio</h2>
 		<div class="row" id="forecast3day"></div>
-		<form class="form-group">
-				<label for="latitude">Latitude: </label>
-				<input class="form-control" id="latitude" type="text">
-				<label for="longitude">Longitude: </label>
-				<input class="form-control" id="longitude" type="text">
+		<div id="input-and-button">
+				<label for="placeInput">Place: </label>
+				<input class="form-control" id="placeInput" type="text" placeholder="Enter place name">
 				<button class="btn btn-success" id="btn-update" type="button">Update</button>
-		</form>
+		</div>
 	</div>
-	<div class="container-fluid" id="map-canvas"></div>
+	<div class="container" id="map-canvas"></div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCU1V2H7_6Fzw8z2GGimwi0herlv7pPsmY"></script>
 	<script type="text/javascript">
 		'use strict';
-
-		var updateButton = $('#btn-update');
-		var place = $('#place');
-
-		$.get('http://api.openweathermap.org/data/2.5/forecast/daily', {
-			APPID: '16d4c1bdb3097dd5a2e01eebdba6fe53',
+		var newPosition = {
 			lat: 29.42,
-			lon: -98.49,
+			lng: -98.49
+		}
+		function weather () {
+			$.get('http://api.openweathermap.org/data/2.5/forecast/daily', {
+			APPID: '16d4c1bdb3097dd5a2e01eebdba6fe53',
+			lat: newPosition.lat,
+			lon: newPosition.lng,
 			units: 'imperial',
 			cnt: 3
 		}).done(function(forecast) {
+			var forecastInfo = '';
 			console.log(forecast);
 			var forecast3day = $('#forecast3day');
 			forecast.list.forEach(function(day) {
-				forecast3day.append(
-					'<div class="forecast col-sm-4">' + 
-						'<p class="temperature">' + day.temp.max + '&deg;/' + day.temp.min + '&deg;</p>' +
-						'<img src="http://openweathermap.org/img/w/' + day.weather[0].icon + '.png">' +
-						'<p>Clouds: ' + day.clouds + '%</p>' +
-						'<p>Humidity: ' + day.humidity + '%</p>' +
-						'<p>Wind: ' + day.speed + 'mph</p>' +
-					'</div>'
-					);
-			})
+				forecastInfo += '<div class="forecast col-sm-4">'
+				forecastInfo += '<p class="temperature">' + day.temp.max + '&deg;/' + day.temp.min + '&deg;</p>'
+				forecastInfo += '<img src="http://openweathermap.org/img/w/' + day.weather[0].icon + '.png">'
+				forecastInfo += '<p>Clouds: ' + day.clouds + '%</p>'
+				forecastInfo += '<p>Humidity: ' + day.humidity + '%</p>'
+
+				forecastInfo += '<p>Wind: ' + day.speed + 'mph</p></div>'					
+					
+				});
+				forecast3day.html(forecastInfo);
+				place.html(forecast.city.name);
 		});
+		};
+
+		weather();
 
 		var mapOptions = {
 			zoom: 4,
 			center: {
-				lat: 39,
-				lng: -98.5
+				lat: 29.42,
+				lng: -98.49
 			}
 		};
 		var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
 		var marker = new google.maps.Marker({
 				position: {
-					lat: 39,
-					lng: -98.5
+					lat: mapOptions.center.lat,
+					lng: mapOptions.center.lng
 				},
 				map: 'map-canvas',
 				draggable: true,
@@ -113,35 +117,30 @@
 		});
 		marker.setMap(map);
 
-		updateButton.click(function(event) {
-			var lat = $('#latitude');
-			var lon = $('#longitude');
-			console.log('Latitude: ' + latitude);
-			console.log('Longitude: ' + longitude);
-			$.get('http://api.openweathermap.org/data/2.5/forecast/daily', {
-				APPID: '16d4c1bdb3097dd5a2e01eebdba6fe53',
-				lat: parseFloat(lat.val()),
-				lon: parseFloat(lon.val()),
-				units: 'imperial',
-				cnt: 3
-			}).done(function(forecast) {
-				console.log(forecast);
-				var forecast3day = $('#forecast3day');
-				forecast3day.html('');
-				forecast.list.forEach(function(day) {
-					forecast3day.append(
-						'<div class="forecast col-sm-4">' + 
-							'<p>' + day.temp.max + '&deg;/' + day.temp.min + '&deg;</p>' +
-							'<img src="http://openweathermap.org/img/w/' + day.weather[0].icon + '.png">' +
-							'<p>Clouds: ' + day.clouds + '%</p>' +
-							'<p>Humidity: ' + day.humidity + '%</p>' +
-							'<p>Wind: ' + day.speed + 'mph</p>' +
-						'</div>'
-						);
-				})
-			place.html(forecast.city.name);
-			});
+		var updateButton = $('#btn-update');
+		var place = $('#place');
+		var placeInput = $('#placeInput');
+
+		updateButton.click(function() {
+			var geocoder = new google.maps.Geocoder();
+
+			geocoder.geocode({ "address": placeInput.val() }, function(results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+					map.setCenter(results[0].geometry.location);
+					newPosition = results[0].geometry.location;
+					console.log(results[0]);
+					place.html(results[0].address_components[0].long_name);
+					weather();
+				} else {
+					alert("Geocoding was not successful - STATUS: " + status);
+				}
+			});		
 		});
+
+		marker.addListener('dragend', function(event) {
+			newPosition = event.latLng;
+			weather();
+		})
 
 	</script>
 </body>

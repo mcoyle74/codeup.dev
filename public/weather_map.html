@@ -79,10 +79,10 @@
 			var forecastInfo = '';
 			console.log(forecast);
 			var forecastDisplay = $('#forecast-display');
-			var forecastDay = new Date();
-			forecast.list.forEach(function(day, index) {
+			forecast.list.forEach(function(day) {
+				var forecastDay = new Date(day.dt * 1000);
 				forecastInfo += '<div class="forecast col-sm-4">';
-				forecastInfo += '<p>' + Date(forecast.list[index].dt) + '</p>';
+				forecastInfo += '<p>' + forecastDay.toString('MMM dd') + '</p>';
 				forecastInfo += '<p class="temperature">' + day.temp.max + '&deg;/' + day.temp.min + '&deg;</p>';
 				forecastInfo += '<img src="http://openweathermap.org/img/w/' + day.weather[0].icon + '.png">';
 				forecastInfo += '<p>Clouds: ' + day.clouds + '%</p>';

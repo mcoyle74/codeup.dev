@@ -50,7 +50,7 @@
 	<div class="container" id="weather-application">
 		<h1>Weather Application</h1>
 		<h2 id="place">San Antonio</h2>
-		<div class="row" id="forecast3day"></div>
+		<div class="row" id="forecast-display"></div>
 		<div id="input-and-button">
 				<label for="placeInput">Place: </label>
 				<input class="form-control" id="placeInput" type="text" placeholder="Enter place name">
@@ -78,19 +78,19 @@
 		}).done(function(forecast) {
 			var forecastInfo = '';
 			console.log(forecast);
-			var forecast3day = $('#forecast3day');
-			forecast.list.forEach(function(day) {
-				forecastInfo += '<div class="forecast col-sm-4">'
-				forecastInfo += '<p class="temperature">' + day.temp.max + '&deg;/' + day.temp.min + '&deg;</p>'
-				forecastInfo += '<img src="http://openweathermap.org/img/w/' + day.weather[0].icon + '.png">'
-				forecastInfo += '<p>Clouds: ' + day.clouds + '%</p>'
-				forecastInfo += '<p>Humidity: ' + day.humidity + '%</p>'
-
-				forecastInfo += '<p>Wind: ' + day.speed + 'mph</p></div>'					
-					
-				});
-				forecast3day.html(forecastInfo);
-				place.html(forecast.city.name);
+			var forecastDisplay = $('#forecast-display');
+			var forecastDay = new Date();
+			forecast.list.forEach(function(day, index) {
+				forecastInfo += '<div class="forecast col-sm-4">';
+				forecastInfo += '<p>' + Date(forecast.list[index].dt) + '</p>';
+				forecastInfo += '<p class="temperature">' + day.temp.max + '&deg;/' + day.temp.min + '&deg;</p>';
+				forecastInfo += '<img src="http://openweathermap.org/img/w/' + day.weather[0].icon + '.png">';
+				forecastInfo += '<p>Clouds: ' + day.clouds + '%</p>';
+				forecastInfo += '<p>Humidity: ' + day.humidity + '%</p>';
+				forecastInfo += '<p>Wind: ' + day.speed + 'mph</p></div>';						
+			});
+			forecastDisplay.html(forecastInfo);
+			place.html(forecast.city.name);
 		});
 		};
 

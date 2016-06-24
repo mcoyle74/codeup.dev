@@ -53,7 +53,7 @@
 		<div class="row" id="forecast-display"></div>
 		<div id="input-and-button">
 				<label for="placeInput">Place: </label>
-				<input class="form-control" id="placeInput" type="text" placeholder="Enter place name">
+				<input class="form-control" id="place-input" type="text" placeholder="Enter place name">
 				<button class="btn btn-success" id="btn-update" type="button">Update</button>
 		</div>
 	</div>
@@ -83,7 +83,7 @@
 				$('body').css({'background-image': 'url(/img/raindrops-window.jpeg)', 'background-size': 'cover', 'background-repeat': 'no-repeat'});
 			} else if (forecast.list[0].weather[0].icon == '01d') {
 				$('body').css({'background-image': 'url(/img/sunny-beach.jpeg)', 'background-size': 'cover', 'background-repeat': 'no-repeat'});
-			} else if (forecast.list[0].weather[0].icon == '03d') {
+			} else if (forecast.list[0].weather[0].icon == ('02d' || '03d') {
 				$('body').css({'background-image': 'url(/img/clouds.jpeg)', 'background-size': 'cover', 'background-repeat': 'no-repeat'});
 			} else {
 
@@ -128,7 +128,7 @@
 
 		var updateButton = $('#btn-update');
 		var place = $('#place');
-		var placeInput = $('#placeInput');
+		var placeInput = $('#place-input');
 
 		updateButton.click(function() {
 			var geocoder = new google.maps.Geocoder();
@@ -145,6 +145,12 @@
 				}
 			});		
 		});
+
+		placeInput.keydown(function(event) {
+			if (event.keyCode == 13) {
+				updateButton.click();
+			}
+		})
 
 		marker.addListener('dragend', function(event) {
 			newPosition = event.latLng;

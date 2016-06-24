@@ -60,8 +60,8 @@
 		function animate(color, finalPrice) {
 			var colors = ['green', 'yellow', 'blue', 'red', 'orange'];
 			var count = Math.floor(Math.random() * 25);
+			var i = 0;
 			var id = setInterval(function () {
-				var i = 0;
 				$('#lucky-circle').css('background-color', colors[i]);
 				i++;
 				if (i == count) {

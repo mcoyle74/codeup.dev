@@ -1,3 +1,5 @@
+(function() {
+
 "use strict";
 
 var clearButton = document.getElementById('clear');
@@ -105,3 +107,5 @@ for (var i = 0; i < operatorButtonPush.length; i++) {
 }
 
 equalsButton.addEventListener('click', display.answer, false);
+
+}());

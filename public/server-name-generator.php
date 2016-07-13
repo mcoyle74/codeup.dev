@@ -35,6 +35,6 @@ $name = createServerNameString($adjectives, $nouns);
 </head>
 <body>
 	<h1>Server Name Generator</h1>
-	<p>Your server name is <?php echo $name; ?>.</p>
+	<p>Your server name is <?= $name; ?>.</p>
 </body>
 </html>

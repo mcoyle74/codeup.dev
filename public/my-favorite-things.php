@@ -15,8 +15,13 @@ $favoriteThings	= ['family', 'learning', 'art', 'movies', 'games', 'food'];
 		body {
 			background-color: #f0f0f0;
 		}
+
+		table {
+			background-color: #f8f8f8;
+		}
+
 		.table-striped>tbody>tr:nth-of-type(odd) {
-			background-color: #cfecd2;
+			background-color: #e8f8e8;
 		}
 	</style>
 </head>
@@ -27,13 +32,13 @@ $favoriteThings	= ['family', 'learning', 'art', 'movies', 'games', 'food'];
 			<tr>
 				<th>Favorite Things:</th>
 			</tr>
-			<?php foreach ($favoriteThings as $thing) { ?>
+			<?php foreach ($favoriteThings as $thing): ?>
 			<tr>
 				<td>
-					<?php echo $thing; ?>
+					<?= $thing; ?>
 				</td>
 			</tr>
-			<?php } ?>
+			<?php endforeach; ?>
 		</table>
 	</div>
 

@@ -1,20 +1,27 @@
 <?php
 
-$adjectives = ['sneaky', 'sleepy', 'happy', 'bashful', 'simple', 'grumpy', 'plain', 'hidden', 'smooth', 'lone'];
-$nouns = ['dog', 'duck', 'blanket', 'foot', 'fur', 'rain', 'fish', 'hand', 'squirrel', 'notebook'];
+function pageController()
+{
+	$data = [];
+	$adjectives = ['sneaky', 'sleepy', 'happy', 'bashful', 'simple', 'grumpy', 'plain', 'hidden', 'smooth', 'lone'];
+	$nouns = ['dog', 'duck', 'blanket', 'foot', 'fur', 'rain', 'fish', 'hand', 'squirrel', 'notebook'];
 
-function getRandomElementFromArray($array) {
-	$random = mt_rand(0, (count($array) - 1));
-	return $array[$random];
+	function getRandomElementFromArray($array) {
+		$random = mt_rand(0, (count($array) - 1));
+		return $array[$random];
+	}
+
+	function createServerNameString($array1, $array2) {
+		$variable1 = getRandomElementFromArray($array1);
+		$variable2 = getRandomElementFromArray($array2);
+		return $serverName = "{$variable1}-{$variable2}";
+	}
+
+	$data['name'] = createServerNameString($adjectives, $nouns);
+	return $data;
 }
 
-function createServerNameString($array1, $array2) {
-	$variable1 = getRandomElementFromArray($array1);
-	$variable2 = getRandomElementFromArray($array2);
-	return $serverName = "{$variable1}-{$variable2}";
-}
-
-$name = createServerNameString($adjectives, $nouns);
+extract(pageController());
 
 ?>
 

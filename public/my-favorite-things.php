@@ -13,16 +13,17 @@ $favoriteThings	= ['family', 'learning', 'art', 'movies', 'games', 'food'];
 
 	<style type="text/css">
 		body {
-			background-color: #888;
+			background-color: #fffcf0;
 			color: #804000;
 		}
 
 		table {
-			background-color: #888;
+			background-color: #fff;
+			font-size: 1.5em;
 		}
 
 		.table-striped>tbody>tr:nth-of-type(odd) {
-			background-color: #888f88;
+			background-color: #f8f5ea;
 		}
 	</style>
 </head>

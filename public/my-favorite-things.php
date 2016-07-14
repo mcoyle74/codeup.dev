@@ -1,6 +1,14 @@
-<?php 
+<?php
 
-$favoriteThings	= ['family', 'learning', 'art', 'movies', 'games', 'food'];
+function pageController()
+{
+	$data = [];
+	$favoriteThings	= ['family', 'learning', 'art', 'movies', 'games', 'food'];
+	$data['favorites'] = $favoriteThings;
+	return $data;
+}
+
+extract(pageController());
 
 ?>
 
@@ -19,7 +27,7 @@ $favoriteThings	= ['family', 'learning', 'art', 'movies', 'games', 'food'];
 
 		table {
 			background-color: #fff;
-			font-size: 1.5em;
+			font-size: 1.25em;
 		}
 
 		.table-striped>tbody>tr:nth-of-type(odd) {
@@ -34,7 +42,7 @@ $favoriteThings	= ['family', 'learning', 'art', 'movies', 'games', 'food'];
 			<tr>
 				<th>Favorite Things:</th>
 			</tr>
-			<?php foreach ($favoriteThings as $thing): ?>
+			<?php foreach ($favorites as $thing): ?>
 			<tr>
 				<td>
 					<?= $thing; ?>

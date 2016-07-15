@@ -1,13 +1,26 @@
 <?php
 
-if ($_POST) {
-	$username = isset($_POST['username']) ? $_POST['username'] : '';
-	$password = isset($_POST['password']) ? $_POST['password'] : '';
-	if (($username == 'guest') && ($password == 'password')) {
-		header('Location: authorized.php');
+function pageController()
+{
+	$fail = '';
+	if ($_POST) {
+		$username = isset($_POST['username']) ? $_POST['username'] : '';
+		$password = isset($_POST['password']) ? $_POST['password'] : '';
+		if (($username == 'guest') && ($password == 'password')) {
+			header('Location: authorized.php');
+		} else {
+			$fail = 'Sorry, username or password not valid.';
+		}
 	}
+
+	return [
+		'username' => 'guest',
+		'password' => 'password',
+		'fail' => $fail,
+	];
 }
 
+extract(pageController());
 
 ?>
 
@@ -25,6 +38,6 @@ if ($_POST) {
 		<input id="password" name="password" type="password">
 		<button type="submit">Submit</button>
 	</form>
-	<p><?= 'Sorry, username or password not valid.' ?></p>
+	<p><?= $fail ?></p>
 </body>
 </html>

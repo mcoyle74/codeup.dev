@@ -1,4 +1,5 @@
 <?php
+
 function pageController()
 {
 	$data = [];
@@ -28,12 +29,13 @@ extract(pageController());
 	>
 	<title>Server name generator</title>
 </head>
+
 <body>
-<div class="container">
-	<h1><?= $randomAdjective ?> <?= $randomNoun ?></h1>
-</div>
-<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js">
-</script>
+	<div class="container">
+		<h1><?= $randomAdjective ?> <?= $randomNoun ?></h1>
+	</div>
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js">
+	</script>
 </body>
 </html>

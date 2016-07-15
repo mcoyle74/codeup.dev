@@ -23,10 +23,26 @@ extract(pageController());
 <html>
 <head>
 	<title>Counter</title>
+	<style type="text/css">
+		div.pseudo-button {
+			height: 50px;
+			width: 100px;
+			background-color: #0057bf;
+			color: #fff;
+			border-radius: 10px;
+			text-align: center;
+			line-height: 45px;
+			margin-bottom: 10px;
+		}
+
+		a {
+			text-decoration: none;
+		}
+	</style>
 </head>
 <body>
 	<h1>counter = <?= $counter ?></h1>
-	<a href="?counter=<?= $counter + 1; ?>">up</a>
-	<a href="?counter=<?= $counter - 1; ?>">down</a>
+	<a href="counter.php?counter=<?= $counter + 1; ?>"><div class="pseudo-button">up</div></a>
+	<a href="counter.php?counter=<?= $counter - 1; ?>"><div class="pseudo-button">down</div></a>
 </body>
 </html>

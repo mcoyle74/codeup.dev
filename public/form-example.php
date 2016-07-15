@@ -1,8 +1,8 @@
 <?php
 	$items = array('Item One', 'Item Two', 'Item Three');
 	$allItems = array_merge($items, $_POST);
-	foreach ($allItems as $value) {
-		htmlspecialchars(strip_tags($value));
+	foreach ($allItems as $item) {
+		htmlspecialchars(strip_tags($item));
 	}
 ?>
 <!DOCTYPE html>

@@ -1,23 +1,38 @@
 body {
 	font-family: Monaco, monospace;
-	background-color: #f0ffff;
-	background-image: url("/img/code-css.png");
-	background-size: cover;
-	margin: 0;
-}
-img {
-	opacity: .5;
-}
-p {
-	color: #000080;
-	margin-left: 1em;
+	background-color: #eee;
 }
 
-.fancy-heading {
-	font-size: 4em;
-	color: #fff;
-	background-color: #007ba7;
+#form-head, #form-body {
+	padding: 0 25px 25px 25px;
+	margin: 0 auto;
+	width: 75%;
 	text-align: center;
-	padding: 1em 1em 1em 1em;
-	margin: 0;
+}
+
+#form-head {
+	margin-top: 20%;
+	background-color: #aaa;
+	border: 7px solid #aaa;
+	border-radius: 20px 20px 0 0;
+}
+
+#form-body {
+	padding-top: 20px;
+	border: 7px solid #aaa;
+	border-radius: 0 0 20px 20px;
+}
+
+#fail {
+	margin-top: 25px;
+}
+
+#button-login {
+	width: 120px;
+}
+
+#alert {
+	height: 50px;
+	width: 75%;
+	margin: 0 auto;
 }

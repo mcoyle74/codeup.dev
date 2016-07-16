@@ -1,9 +1,11 @@
 <?php
+	
 	$items = array('Item One', 'Item Two', 'Item Three');
-	$allItems = array_merge($items, $_POST);
-	foreach ($allItems as $item) {
-		htmlspecialchars(strip_tags($item));
+	if (isset($_POST['newitem'])) {
+		$_POST['newitem'] = htmlspecialchars(strip_tags($_POST['newitem']));
 	}
+	$allItems = array_merge($items, $_POST);
+	
 ?>
 <!DOCTYPE html>
 <html>

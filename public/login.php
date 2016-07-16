@@ -36,22 +36,22 @@ extract(pageController());
 </head>
 <body>
 	<div class="container">
-			<div id="form-head">
-				<h2>Login: </h2>
-			</div>
-			<div id="form-body">
-				<form method="POST" action="/login.php" role="form">
-					<div class="form-group">
-						<label for="usernumber">Username: </label>
-						<input id="username" name="username" type="text" placeholder="Enter username." autofocus>
-					</div>
-					<div class="form-group">
-						<label for="password">Password: </label>
-						<input id="password" name="password" type="password" placeholder="Enter password.">
-					</div>
-					<button class="btn btn-primary" type="submit" id="button-login"> <span class="glyphicon glyphicon-log-in"></span> Login </button>
-				</form>
-			</div>
+		<div id="form-head">
+			<h2>Login: </h2>
+		</div>
+		<div id="form-body">
+			<form method="POST" action="/login.php" role="form">
+				<div class="form-group">
+					<label for="usernumber">Username: </label>
+					<input id="username" name="username" type="text" placeholder="Enter username." autofocus>
+				</div>
+				<div class="form-group">
+					<label for="password">Password: </label>
+					<input id="password" name="password" type="password" placeholder="Enter password.">
+				</div>
+				<button class="btn btn-primary" type="submit" id="button-login"> <span class="glyphicon glyphicon-log-in"></span> Login </button>
+			</form>
+		</div>
 		<div class="alert, alert-danger" id="alert" role="alert">
 			<?= $fail ?>
 		</div>

@@ -33,7 +33,6 @@ extract(pageController());
 	<title>Login</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="/css/site.css">
-
 </head>
 <body>
 	<div class="container">
@@ -53,8 +52,8 @@ extract(pageController());
 					<button class="btn btn-primary" type="submit" id="button-login"> <span class="glyphicon glyphicon-log-in"></span> Login </button>
 				</form>
 			</div>
-		<div id="alert">
-			<p id="fail"><?= $fail ?></p>
+		<div class="alert, alert-danger" id="alert" role="alert">
+			<?= $fail ?>
 		</div>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -64,9 +63,8 @@ extract(pageController());
 			"use strict";
 
 			var alert = $('#alert');
-			var ptag = $('#fail');
-			if (ptag[0].innerText != '') {
-				alert.addClass('alert, alert-danger').attr('role=\"alert\"');
+			if (alert[0].innerText != '') {
+				alert.css('opacity', '1');
 			}
 		}());
 	</script>

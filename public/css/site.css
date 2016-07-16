@@ -4,23 +4,23 @@ body {
 }
 
 #form-head, #form-body {
-	padding: 0 25px 25px 25px;
 	margin: 0 auto;
 	width: 75%;
-	text-align: center;
 }
 
 #form-head {
 	margin-top: 20%;
-	background-color: #aaa;
-	border: 7px solid #aaa;
-	border-radius: 20px 20px 0 0;
+	padding-left: 25px;
+	background-color: #9ab;
+	border: 5px solid #9ab;
+	border-radius: 15px 15px 0 0;
 }
 
 #form-body {
-	padding-top: 20px;
-	border: 7px solid #aaa;
-	border-radius: 0 0 20px 20px;
+	text-align: center;
+	padding: 30px;
+	border: 5px solid #9ab;
+	border-radius: 0 0 15px 15px;
 }
 
 #fail {
@@ -28,11 +28,16 @@ body {
 }
 
 #button-login {
-	width: 120px;
+	min-width: 120px;
 }
 
 #alert {
-	height: 50px;
+	opacity: 0;
 	width: 75%;
 	margin: 0 auto;
+	margin-top: 10px;
+	padding: 20px;
+	border: 2px solid #ebccd1;
+	border-radius: 10px;
+	text-align: center;
 }

@@ -50,6 +50,9 @@ extract(pageController());
 					<input id="password" name="password" type="password" placeholder="Enter password.">
 				</div>
 				<button class="btn btn-primary" type="submit" id="button-login"> <span class="glyphicon glyphicon-log-in"></span> Login </button>
+				<div class="checkbox">
+					<label for="remember"><input id="remember" name="remember" type="checkbox" checked>Remember me?</label>
+				</div>
 			</form>
 		</div>
 		<div class="alert, alert-danger" id="alert" role="alert">

@@ -28,5 +28,6 @@ extract(pageController());
 <body>
 	<h1>Authorized</h1>
 	<p><?= $message; ?></p>
+	<a href="logout.php">Log off</a>
 </body>
 </html>

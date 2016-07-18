@@ -48,6 +48,6 @@ extract(pageController());
 	<h1>Ping</h1>
 	<h2>count = <?= $counter ?></h2>
 	<a href="pong.php?counter=<?= $counter + 1; ?>"><div class="pseudo-button">hit</div></a>
-	<a href="pong.php?counter=0"><div class="pseudo-button" id="miss">miss</div></a>
+	<a href="ping.php?counter=0"><div class="pseudo-button" id="miss">miss</div></a>
 </body>
 </html>

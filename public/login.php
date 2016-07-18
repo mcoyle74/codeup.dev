@@ -4,7 +4,7 @@ function pageController()
 {
 	session_start();
 	$fail = '';
-	if ($_SESSION['logged_in_user'] == 'guest') {
+	if ((isset($_SESSION['logged_in_user']) && ($_SESSION['logged_in_user']) == 'guest')) {
 		header('Location: authorized.php');
 	}
 	if ($_POST) {

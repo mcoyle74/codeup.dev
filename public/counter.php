@@ -11,7 +11,7 @@ function pageController()
 	}
 
 	$data['counter'] = $counter;
-	var_dump($_GET);
+	
 	return $data;
 }
 

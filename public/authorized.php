@@ -1,7 +1,22 @@
 <?php
 
-session_start();
-var_dump($_SESSION);
+function pageController()
+{
+	session_start();
+	$username = $_SESSION['logged_in_user'];
+
+	if ($username != 'guest') {
+		header('Location: login.php');
+	} else {
+		$message = "Welcome, {$username}.";
+	}
+	
+	return [
+		'message' => $message
+		];
+}
+
+extract(pageController());
 
 ?>
 
@@ -12,5 +27,6 @@ var_dump($_SESSION);
 </head>
 <body>
 	<h1>Authorized</h1>
+	<p><?= $message; ?></p>
 </body>
 </html>

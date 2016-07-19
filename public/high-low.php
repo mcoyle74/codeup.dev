@@ -6,17 +6,19 @@ function pageController()
 
 	function clearSession()
 	{
+		unset($_POST);
 		session_unset();
 		session_regenerate_id(true);
 	}
-
+ 
 	$min = 1;
 	$max = 100;
 	$win = '';
+	$pclass = '';
 
 	$count = (isset($_SESSION['count'])) ? $_SESSION['count'] :	0;
 
-	$random = (isset($_SESSION['random'])) ? $_SESSION['random'] : mt_rand($min, $max);
+	$random = (isset($_SESSION['random'])) ? $_SESSION['random'] : $_SESSION['random'] = mt_rand($min, $max);
 
 	if ($_POST) {
 		$guess = $_POST['guess'];
@@ -36,16 +38,18 @@ function pageController()
 		$guess = '';
 		$count = 0;
 		$message = '';
+		$pclass = '';
 	}
 
 	if ($count > 0) {
+		$pclass = 'hidden';
 		if ($win == '') {
-			$class = '"alert alert-info"';
+			$alertClass = '"alert alert-info"';
 		} elseif ($win == $message) {
-			$class = '"alert alert-success"';
+			$alertClass = '"alert alert-success"';
 		}
 	} else {
-		$class = '"hidden"';
+		$alertClass = '"hidden"';
 	}
 
 	echo "Random number is '{$random}'." . '<br>';
@@ -59,7 +63,8 @@ function pageController()
 		'guess' => $guess,
 		'count' => $count,
 		'message' => $message,
-		'class' => $class
+		'alertClass' => $alertClass,
+		'pclass' => $pclass
 	];
 	
 }
@@ -99,9 +104,9 @@ extract(pageController());
 			<header class="page-header">
 				<h1>High-Low Game</h1>
 			</header>
-			<p>I have chosen a number from <?= $min ?> to <?= $max ?>. Try to guess my number.</p>
+			<p class=<?= '"' . $pclass . '"'; ?>>I have chosen a number from <?= $min ?> to <?= $max ?>. Try to guess my number.</p>
 			<!-- Switch the class from info to success when the user win -->
-			<div class=<?= $class ?> role="alert">
+			<div class=<?= $alertClass ?> role="alert">
 				<p>
 					Your last guess was <?= $guess ?>.<br>
 					<?= $message ?><br>

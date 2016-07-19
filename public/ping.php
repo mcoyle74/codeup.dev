@@ -6,8 +6,8 @@ function pageController()
 {
 	$data = [];
 
-	if (isset($_GET['counter'])) {
-		$counter = $_GET['counter'];
+	if (inputHas('counter') {
+		$counter = inputGet('counter');
 	} else {
 		$counter = 0;
 	}

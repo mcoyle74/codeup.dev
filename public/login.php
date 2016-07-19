@@ -10,8 +10,8 @@ function pageController()
 		header('Location: authorized.php');
 	}
 	if ($_POST) {
-		$username = isset($_POST['username']) ? $_POST['username'] : '';
-		$password = isset($_POST['password']) ? $_POST['password'] : '';
+		$username = inputHas('username') ? inputGet('username') : '';
+		$password = inputHas('password') ? inputGet('password') : '';
 		
 		if (($username == 'guest') && ($password == 'password')) {
 			$_SESSION['logged_in_user'] = $username;

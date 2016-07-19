@@ -1,13 +1,13 @@
 <?php
 	
 	function inputHas($key) {
-		$result = isset($key) ? true : false;
+		$result = isset($_REQUEST($key)) ? true : false;
 		return $result;
 	}
 
 	function inputGet($key) {
-		$theKey = isset($key) ? $key : NULL;
-		return $theKey;
+		$theKeyIs = isset($_REQUEST($key)) ? $_REQUEST($key) : NULL;
+		return $theKeyIs;
 	}
 
 	function escape($input) {

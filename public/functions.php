@@ -1,12 +1,14 @@
 <?php
 	
 	function inputHas($key) {
-		$keyToCheck = $_REQUEST[$key];
-		$result = isset($keyToCheck) ? true : false;
-		if ($result) {
-			return true;
-		}
-		return false;
+		// $keyToCheck = $_REQUEST[$key];
+		// $result = isset($keyToCheck) ? true : false;
+		// if ($result) {
+		// 	return true;
+		// }
+		// return false;
+		$result = isset($_REQUEST[$key]) ? true : false;
+		return $result;
 	}
 
 	function inputGet($key) {

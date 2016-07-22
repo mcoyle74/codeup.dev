@@ -1,11 +1,16 @@
 <?php
 
+require_once '../Auth.php';
+
 function pageController()
 {
 	session_start();
-	$username = $_SESSION['logged_in_user'];
+	// $username = 'guest';
+	$username = Auth::user();
 
 	if ($username != 'guest') {
+		var_dump($username);
+		exit(0);
 		header('Location: login.php');
 	} else {
 		$message = "Welcome, {$username}.";

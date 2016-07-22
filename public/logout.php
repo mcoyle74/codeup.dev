@@ -1,5 +1,7 @@
 <?php
 
+require_once '../Auth.php';
+
 session_start();
 
 function clearSession()
@@ -9,6 +11,6 @@ function clearSession()
 }
 
 clearSession();
-header('Location: login.php');
+Auth::logout();
 
 ?>

@@ -1,23 +1,28 @@
 <?php
 
 require_once 'functions.php';
+require_once '../Auth.php';
+require_once '../src/Input.php';
+
 
 function pageController()
 {
 	session_start();
 	$fail = '';
-	if ((isset($_SESSION['logged_in_user']) && ($_SESSION['logged_in_user']) == 'guest')) {
-		header('Location: authorized.php');
-	}
+	$class = 'hidden';
+	// if (Auth::check() && Auth::user() == 'guest') {
+	// 	header('Location: authorized.php');
+	// 	exit(0);
+	// }
 	if ($_POST) {
-		$username = inputHas('username') ? inputGet('username') : '';
-		$password = inputHas('password') ? inputGet('password') : '';
-		
-		if (($username == 'guest') && ($password == 'password')) {
-			$_SESSION['logged_in_user'] = $username;
+		$username = Input::has('username') ? Input::get('username') : '';
+		$password = Input::has('password') ? Input::get('password') : '';
+		if (Auth::attempt($username, $password)) {
 			header('Location: authorized.php');
+			exit(0);
 		} else {
 			$fail = 'Sorry, you have entered an invalid username or password.';
+			$class = 'alert alert-danger';
 		}
 	}
 
@@ -25,6 +30,7 @@ function pageController()
 		'username' => 'guest',
 		'password' => 'password',
 		'fail' => $fail,
+		'class' => $class
 	];
 }
 
@@ -63,21 +69,11 @@ extract(pageController());
 				</div>
 			</form>
 		</div>
-		<div class="alert, alert-danger" id="alert" role="alert">
+		<div class=<?= '"' . $class . '"'; ?> id="alert" role="alert">
 			<?= $fail ?>
 		</div>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-	<script type="text/javascript">
-		(function() {
-			"use strict";
-
-			var alert = $('#alert');
-			if (alert[0].innerText != '') {
-				alert.css('opacity', '1');
-			}
-		}());
-	</script>
 </body>
 </html>

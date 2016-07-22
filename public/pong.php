@@ -1,13 +1,14 @@
 <?php
 
 require_once 'functions.php';
+require_once '../Input.php';
 
 function pageController()
 {
 	$data = [];
 
-	if (inputHas('counter')) {
-		$counter = inputGet('counter');
+	if (Input::has('counter')) {
+		$counter = Input::get('counter');
 	} else {
 		$counter = 0;
 	}

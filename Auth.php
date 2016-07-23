@@ -31,12 +31,11 @@ class Auth
 	}
 
 	public static function logout() {
+		$log = new Log();
+		$log->info('User ' . self::user() . ' logged out.');
 		header('Location: login.php');
-		$log->info("User $username logged out.");
 		exit(0);
 	}
-
-
 }
 
 ?>

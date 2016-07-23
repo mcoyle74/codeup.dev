@@ -3,6 +3,7 @@
 require_once '../Auth.php';
 
 session_start();
+Auth::logout();
 
 function clearSession()
 {
@@ -11,6 +12,5 @@ function clearSession()
 }
 
 clearSession();
-Auth::logout();
 
 ?>

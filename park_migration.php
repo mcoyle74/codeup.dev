@@ -9,4 +9,8 @@ require 'db_connect.php';
 
 echo $dbc->getAttribute(PDO::ATTR_CONNECTION_STATUS) . "\n";
 
+$query = 'DROP TABLE IF EXISTS national_parks';
+
+$dbc->exec($query);
+
 ?>

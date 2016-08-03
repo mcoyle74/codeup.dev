@@ -8,17 +8,20 @@ function pageController($dbc)
 {
 	$title = 'National Parks';
 
-	$query = 'SELECT * FROM national_parks';
-	$limit = 4;
 	$page = Input::get('page') < 1 ? 1 : Input::get('page', 1);
+	$limit = 4;
 	$offset = ($page - 1) * $limit;
-	$query .= " LIMIT $limit OFFSET $offset";
 
-	$parks = $dbc->query($query)->fetchAll(PDO::FETCH_ASSOC);
+	$stmt = $dbc->prepare('SELECT * FROM national_parks LIMIT :limit OFFSET :offset');
+
+	$stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+	$stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+
+	$stmt->execute();
 
 	return [
 		'title' => $title,
-		'parks' => $parks,
+		'stmt' => $stmt,
 		'page' => $page
 	];
 }
@@ -42,7 +45,7 @@ extract(pageController($dbc));
 				<th>Date Est.</th>
 				<th>Area (acres)</th>
 			</tr>
-			<?php foreach ($parks as $park): ?>
+			<?php foreach ($stmt as $park): ?>
 				<tr>
 					<td><?= $park['name']; ?></td>
 					<td><?= $park['location']; ?></td>

@@ -1,6 +1,6 @@
 <?php
 
-require_once 'park_constants.php';
+require_once 'parks_constants.php';
 
 require 'db_connect.php';
 

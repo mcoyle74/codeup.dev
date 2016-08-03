@@ -2,13 +2,20 @@
 
 require_once '../parks_constants.php';
 require_once '../db_connect.php';
+require_once '../src/Input.php';
 
 function pageController($dbc)
 {
-	$stmt = $dbc->query('SELECT * FROM national_parks')->fetchAll(PDO::FETCH_ASSOC);
+	$query = 'SELECT * FROM national_parks';
+	$limit = 4;
+	$page = Input::get('page') < 1 ? 1 : Input::get('page', 1);
+	$offset = ($page - 1) * $limit;
+	$query .= " LIMIT $limit OFFSET $offset";
+
+	$parks = $dbc->query($query)->fetchAll(PDO::FETCH_ASSOC);
 
 	return [
-		'stmt' => $stmt
+		'parks' => $parks
 	];
 }
 
@@ -30,7 +37,7 @@ extract(pageController($dbc));
 			<th>Date Est.</th>
 			<th>Area (acres)</th>
 		</tr>
-		<?php foreach ($stmt as $park): ?>
+		<?php foreach ($parks as $park): ?>
 			<tr>
 				<td><?= $park['name']; ?></td>
 				<td><?= $park['location']; ?></td>
@@ -39,5 +46,8 @@ extract(pageController($dbc));
 			</tr>
 		<?php endforeach; ?>
 	</table>
+	<?php for ($i = 1; $i <= 15; $i++): ?>
+		<a href="national_parks.php?page=<?= $i; ?>"><?= $i; ?></a>
+	<?php endfor; ?>
 </body>
 </html>

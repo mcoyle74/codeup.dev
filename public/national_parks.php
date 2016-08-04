@@ -45,6 +45,7 @@ extract(pageController($dbc));
 					<th>Location</th>
 					<th>Date Est.</th>
 					<th>Area (acres)</th>
+					<th>Description</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -54,6 +55,7 @@ extract(pageController($dbc));
 					<td><?= $park['location']; ?></td>
 					<td><?= $park['date_established']; ?></td>
 					<td><?= $park['area_in_acres']; ?></td>
+					<td><?= $park['description']; ?></td>
 				</tr>
 			<?php endforeach; ?>
 			</tbody>
@@ -77,6 +79,28 @@ extract(pageController($dbc));
 			<?php endif; ?>
 			</ul>
 		</nav>
+		<form method="POST">
+			<div class="form-group">
+				<label for="name">Name</label>
+				<input type="text" class="form-control" name="name">
+			</div>
+			<div class="form-group">
+				<label for="location">Location</label>
+				<input type="text" class="form-control" name="location">
+			</div>
+			<div class="form-group">
+				<label for="date_established">Date Est.</label>
+				<input type="text" class="form-control" name="date_established">
+			</div>
+			<div class="form-group">
+				<label for="area_in_acres">Area (acres)</label>
+				<input type="text" class="form-control" name="area_in_acres">
+			</div>
+			<div class="form-group">
+				<label for="description">Description</label>
+				<input type="text" class="form-control" name="description">
+			</div>
+		</form>
 	</div>
 
 	<?php require_once '../partials/scripts.phtml'; ?>

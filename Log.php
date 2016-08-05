@@ -8,17 +8,14 @@ class Log
 
 	public function __construct($prefix = 'log')
 	{
-		$this->filename = $prefix . '-' . date('Y-m-d') . '.log';
+		$this->setFilename();
 		$this->handle = fopen($this->filename, 'a');
 	}
 
-	public function setFilename($filename)
+	public function setFilename()
 	{
-		// code
-	}
-	public function getFilename()
-	{
-		// code
+		$this->filename = $prefix . '-' . date('Y-m-d') . '.log';
+		$this->filename = trim($this->filename);
 	}
 
 	public function logMessage($logLevel, $message)

@@ -35,7 +35,7 @@ class Input
 		if (gettype(self::get($key)) != 'string') {
 			throw new Exception('Input must be a string.');
 		}
-		return self::get($key); 
+		return trim(self::get($key)); 
 	}
 
 	public static function getNumber($key)

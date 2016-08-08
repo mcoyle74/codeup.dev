@@ -30,18 +30,30 @@ class Input
 		return $_SERVER['REQUEST_METHOD'] === 'POST';
 	}
 
-	public static function getString($key)
+	public static function getString($key, $min = 0, $max = 255)
 	{
+		if (gettype($key) != 'string') {
+			throw new InvalidArgumentException('Input must be a string.');
+		}
+		if (!self::has($key)) {
+			throw new OutOfRangeException('Missing input.');
+		}
 		if (gettype(self::get($key)) != 'string') {
-			throw new Exception('Input must be a string.');
+			throw new DomainException('Invalid input type.');
 		}
 		return trim(self::get($key)); 
 	}
 
-	public static function getNumber($key)
+	public static function getNumber($key, $min = 0, $max = 100000000)
 	{
+		if (!is_numeric($key)) {
+			throw new InvalidArgumentException('Input must be a number.');
+		}
+		if (!self::has($key)) {
+			throw new OutOfRangeException('Input missing.');
+		}
 		if (!is_numeric(self::get($key))) {
-			throw new Exception('Input must be a number.');
+			throw new DomainException('Invalid input type.');
 		}
 		return floatval(self::get($key));
 	}

@@ -19,27 +19,55 @@ function pageController($dbc)
 
 	$stmt->execute();
 
+	$errors = [];
+	$error_class = '';
 	if (Input::isPost()) {
-		$name = Input::get('name');
-		$location = Input::get('location');
-		$date_established = Input::get('date_established');
-		$area_in_acres = Input::get('area_in_acres');
-		$description = Input::get('description');
+		try {
+			$name = Input::getString('name');
+		} catch (Exception $e) {
+			$errors[] = 'Error occurred in Name: ' . $e->getMessage();
+		}
+		try {
+			$location = Input::getString('location');
+		} catch (Exception $e) {
+			$errors[] = 'Error occurred in Location: ' . $e->getMessage();
+		}
+		try {
+			$date_established = Input::getString('date_established');
+		} catch (Exception $e) {
+			$errors[] = 'Error occurred in Date Est: ' . $e->getMessage();
+		}
+		try {
+			$area_in_acres = Input::getNumber('area_in_acres');
+		} catch (Exception $e) {
+			$errors['area'] = 'Error occurred in Area: ' . $e->getMessage();
+		}
+		try {
+			$description = Input::getString('description');
+		} catch (Exception $e) {
+			$errors[] = 'Error occurred in Description: ' . $e->getMessage();
+		}
 
-		$insert = 'INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)';
-		$statement = $dbc->prepare($insert);
-		$statement->bindValue(':name', $name, PDO::PARAM_STR);
-		$statement->bindValue(':location', $location, PDO::PARAM_STR);
-		$statement->bindValue(':date_established', $date_established, PDO::PARAM_STR);
-		$statement->bindValue(':area_in_acres', $area_in_acres, PDO::PARAM_STR);
-		$statement->bindValue(':description', $description, PDO::PARAM_STR);
-		$statement->execute();
+		if (empty($errors)) {
+			$insert = 'INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)';
+			$statement = $dbc->prepare($insert);
+			$statement->bindValue(':name', $name, PDO::PARAM_STR);
+			$statement->bindValue(':location', $location, PDO::PARAM_STR);
+			$statement->bindValue(':date_established', $date_established, PDO::PARAM_STR);
+			$statement->bindValue(':area_in_acres', $area_in_acres, PDO::PARAM_STR);
+			$statement->bindValue(':description', $description, PDO::PARAM_STR);
+			$statement->execute();
+		} else {
+			$error_class = 'alert alert-danger';
+		}
 	}
 
 	return [
 		'title' => $title,
 		'stmt' => $stmt,
-		'page' => $page
+		'page' => $page,
+		'error_class' => $error_class,
+		'errors' => $errors
 	];
 }
 
@@ -96,26 +124,31 @@ extract(pageController($dbc));
 			<?php endif; ?>
 			</ul>
 		</nav>
+		<div class="<?= $error_class; ?>">
+			<?php foreach ($errors as $error): ?>
+				<?= $error; ?>
+			<?php endforeach; ?>
+		</div>
 		<form method="POST">
 			<div class="form-group">
 				<label for="name">Name</label>
-				<input type="text" class="form-control" name="name">
+				<input type="text" class="form-control" name="name" value="<?= (!empty($errors)) ? Input::get('name') : '' ?>" placeholder="Name">
 			</div>
 			<div class="form-group">
 				<label for="location">Location</label>
-				<input type="text" class="form-control" name="location">
+				<input type="text" class="form-control" name="location" value="<?= (!empty($errors)) ? Input::get('location') : ''; ?>" placeholder="State">
 			</div>
 			<div class="form-group">
 				<label for="date_established">Date Est.</label>
-				<input type="text" class="form-control" name="date_established">
+				<input type="text" class="form-control" name="date_established" value="<?= (!empty($errors)) ? Input::get('name') : ''; ?>" placeholder="yyyy-mm-dd">
 			</div>
 			<div class="form-group">
 				<label for="area_in_acres">Area (acres)</label>
-				<input type="text" class="form-control" name="area_in_acres">
+				<input type="text" class="form-control" name="area_in_acres" value="<?= (!empty($errors)) ? Input::get('area_in_acres') : ''; ?>" placeholder="12345">
 			</div>
 			<div class="form-group">
 				<label for="description">Description</label>
-				<input type="text" class="form-control" name="description">
+				<input type="text" class="form-control" name="description" value="<?= (!empty($errors)) ? Input::get('desciption') : ''; ?>" placeholder="Describe the park.">
 			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>

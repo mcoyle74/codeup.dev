@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>Longest Strings</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		function longestConsec(strarr, k) {
+			var arrLength = strarr.length,
+				concats = [],
+				concat = '';
+			if (arrLength == 0 || k > arrLength || k <= 0) {
+				return '';
+			} else {
+				for (var i = 0; i < arrLength - (k - 1); i++) {
+					for (var j = i; j < i + k; j++) {
+						concat += strarr[j];
+					}
+				concats.push(concat);
+				concat = '';
+				}
+			}
+
+			var lengths = [];
+			concats.forEach(function(e) {
+				lengths.push(e.length);
+			});
+
+			var longest = Math.max.apply(Math, lengths);
+
+			return concats.find(function(e) {
+				if (e.length == longest) {
+					return e;
+				}
+			});
+		}
+	</script>
+</body>
+</html>

@@ -41,7 +41,7 @@ class Input
 	public static function getNumber($key)
 	{
 		if (!is_numeric(self::get($key))) {
-			throw new Exception('Input must be a number.')
+			throw new Exception('Input must be a number.');
 		}
 		return floatval(self::get($key));
 	}

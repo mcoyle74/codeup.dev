@@ -19,6 +19,23 @@ function pageController($dbc)
 
 	$stmt->execute();
 
+	if (Input::isPost()) {
+		$name = Input::get('name');
+		$location = Input::get('location');
+		$date_established = Input::get('date_established');
+		$area_in_acres = Input::get('area_in_acres');
+		$description = Input::get('description');
+
+		$insert = 'INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)';
+		$statement = $dbc->prepare($insert);
+		$statement->bindValue(':name', $name, PDO::PARAM_STR);
+		$statement->bindValue(':location', $location, PDO::PARAM_STR);
+		$statement->bindValue(':date_established', $date_established, PDO::PARAM_STR);
+		$statement->bindValue(':area_in_acres', $area_in_acres, PDO::PARAM_STR);
+		$statement->bindValue(':description', $description, PDO::PARAM_STR);
+		$statement->execute();
+	}
+
 	return [
 		'title' => $title,
 		'stmt' => $stmt,
@@ -100,6 +117,7 @@ extract(pageController($dbc));
 				<label for="description">Description</label>
 				<input type="text" class="form-control" name="description">
 			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</div>
 

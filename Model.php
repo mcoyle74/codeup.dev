@@ -1,5 +1,7 @@
 <?php
 
+require_once 'adlister_constants.php';
+
 abstract class Model
 {
 	/** @var PDO|null Connection to the database */

@@ -25,7 +25,7 @@ class User extends Model
 	protected function update()
 	{
 		// @TODO: Use prepared statements to ensure data security
-		
+
 		$stmt = self::$dbc->prepare('UPDATE users SET name = :name, email = :email, password = :password WHERE id = :id');
 
 		// @TODO: You will need to iterate through all the attributes to build the prepared query
@@ -76,7 +76,7 @@ class User extends Model
 		$stmt = self::$dbc->prepare('SELECT * FROM users');
 		$stmt->execute();
 
-		$result = $stmt->fetchAll(PDO::);
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		$instance = null;
 		if ($result) {
 			$instance = new static($result);

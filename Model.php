@@ -34,7 +34,8 @@ abstract class Model
 	{
 		if (!self::$dbc) {
 			// @TODO: Connect to database
-			$dbc = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
+			self::$dbc = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
+			self::$dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		}
 	}
 
@@ -68,10 +69,12 @@ abstract class Model
 	public function save()
 	{
 		// @TODO: Ensure there are values in the attributes array before attempting to save
-		if (isset($this->attributes['id'])) {
-				$this->update();
-			} else {
-				$this->insert();
+		if (!empty($this->attributes)) {
+			if (isset($this->attributes['id'])) {
+					$this->update();
+				} else {
+					$this->insert();
+				}
 			}
 		}
 		// @TODO: Call the proper database method: if the `id` is set this is an update, else it is a insert

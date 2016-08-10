@@ -78,7 +78,6 @@ abstract class Model
 			} else {
 				$this->insert();
 			}
-		}
 	}
 
 	/**

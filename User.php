@@ -32,7 +32,7 @@ class User extends Model
 		$stmt->bindValue(':name', $this->attributes['name'], PDO::PARAM_STR);
 		$stmt->bindValue(':email', $this->attributes['email'], PDO::PARAM_STR);
 		$stmt->bindValue(':password', $this->attributes['password'], PDO::PARAM_STR);
-		$stmt->bindValue(':id', $this->attributes['id'], PDO::PARAM_STR);
+		$stmt->bindValue(':id', $this->attributes['id'], PDO::PARAM_INT);
 		$stmt->execute();
 	}
 

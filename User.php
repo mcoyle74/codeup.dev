@@ -51,6 +51,7 @@ class User extends Model
 		// @TODO: Create select statement using prepared statements
 		$stmt = self::$dbc->prepare('SELECT * FROM users WHERE id = :id');
 		$stmt->bindValue(':id', $id, PDO::PARAM_INT);
+		$stmt->execute();
 
 		// @TODO: Store the result in a variable named $result
 		$result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -75,12 +76,11 @@ class User extends Model
 		// @TODO: Learning from the find method, return all the matching records
 		$stmt = self::$dbc->prepare('SELECT * FROM users');
 		$stmt->execute();
-
-		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-		$instance = null;
-		if ($result) {
-			$instance = new static($result);
+		$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		$users = [];
+		foreach ($rows as $row) {
+			$users[] = new static($row);
 		}
-		return $instance;
+		return $users;
 	}
 }

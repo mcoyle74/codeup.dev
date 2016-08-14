@@ -8,10 +8,28 @@ require_once 'User.php';
 // $user->password = password_hash('secret', PASSWORD_DEFAULT);
 // $user->save();
 
-$user = User::find(1);
-$user->name = 'Bob Robertson';
-$user->email = 'bob@bob.com';
-$user->password = password_hash('mysupersecret', PASSWORD_DEFAULT);
+// $user = User::find(1);
+// $user->name = 'Bob Robertson';
+// $user->email = 'bob@bob.com';
+// $user->password = password_hash('mysupersecret', PASSWORD_DEFAULT);
+// $user->save();
+
+// $user = new User();
+// $user->name = 'Bob Johnson';
+// $user->email = 'bobjohnson@bob.org';
+// $user->password = password_hash('youwillneverguess', PASSWORD_DEFAULT);
+// $user->save();
+
+$user = new User();
+$user->name = 'Bob Smith';
+$user->email = 'bobsmith@thebob.com';
+$user->password = password_hash('mynameisbob', PASSWORD_DEFAULT);
 $user->save();
-var_dump($user);
+
+foreach (User::all() as $user) {
+	echo 'ID: ' . $user->id . PHP_EOL,
+		'Name: ' . $user->name . PHP_EOL,
+		'Email: ' . $user->email . PHP_EOL;
+}
+
 ?>

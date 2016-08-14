@@ -20,16 +20,19 @@ require_once 'User.php';
 // $user->password = password_hash('youwillneverguess', PASSWORD_DEFAULT);
 // $user->save();
 
-$user = new User();
-$user->name = 'Bob Smith';
-$user->email = 'bobsmith@thebob.com';
-$user->password = password_hash('mynameisbob', PASSWORD_DEFAULT);
-$user->save();
+// $user = new User();
+// $user->name = 'Bob Smith';
+// $user->email = 'bobsmith@thebob.com';
+// $user->password = password_hash('mynameisbob', PASSWORD_DEFAULT);
+// $user->save();
 
-foreach (User::all() as $user) {
-	echo 'ID: ' . $user->id . PHP_EOL,
-		'Name: ' . $user->name . PHP_EOL,
-		'Email: ' . $user->email . PHP_EOL;
-}
+// foreach (User::all() as $user) {
+// 	echo 'ID: ' . $user->id . PHP_EOL,
+// 		'Name: ' . $user->name . PHP_EOL,
+// 		'Email: ' . $user->email . PHP_EOL;
+// }
+
+$user = User::find(1);
+$user->delete();
 
 ?>

@@ -80,6 +80,12 @@ abstract class Model
 			}
 	}
 
+	public function delete() {
+		$stmt = self::$dbc->prepare('DELETE FROM users WHERE id = :id');
+		$stmt->bindValue(':id', $this->attributes['id'], PDO::PARAM_INT);
+		$stmt->execute();
+	}
+
 	/**
 	 * Insert new entry into database
 	 *

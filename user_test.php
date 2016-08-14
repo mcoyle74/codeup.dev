@@ -9,5 +9,9 @@ require_once 'User.php';
 // $user->save();
 
 $user = User::find(1);
+$user->name = 'Bob Robertson';
+$user->email = 'bob@bob.com';
+$user->password = password_hash('mysupersecret', PASSWORD_DEFAULT);
+$user->save();
 var_dump($user);
 ?>

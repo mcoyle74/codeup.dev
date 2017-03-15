@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript Prime Sieve</title>
+</head>
+<body>
+	<h1>Open JS console.</h1>
+	<script type="text/javascript">
+		'use strict';
+
+		var isPrime = function (num) {
+			var i = 2;
+
+			if (num == 2) {
+				return true;
+			}
+
+			while (i < num) {
+				if (num % i == 0) {
+					return false;
+				}
+
+				i++;
+			}
+
+			return true;
+		}
+	</script>
+</body>
+</html>
